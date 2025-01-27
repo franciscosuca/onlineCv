@@ -17,5 +17,6 @@
 
 - Projects page
 - Experience page
+- Skills page
 - Blog page?
 - Translation Options (DE, ES)
