@@ -11,11 +11,12 @@
 
 - Volunteering page
     - Based on project.config.json
-    - Should it be based on blogs?
-
+    
 ## Backlog
 
 - Projects page
 - Experience page
+- Skills page
+- App hosting & deployment pipeline
 - Blog page?
 - Translation Options (DE, ES)
