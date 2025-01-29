@@ -53,6 +53,13 @@ export function getBlogPosts() {
   return getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'))
 }
 
+/**
+ * Formats a date string and optionally includes a relative time description.
+ * 
+ * @param {string} date - The date string in 'YYYY-MM-DD' format.
+ * @param {boolean} [includeRelative=false] - Whether to include a relative time description.
+ * @returns {string} The formatted date string.
+ */
 export function formatDate(date: string, includeRelative = false) {
   let currentDate = new Date()
   if (!date.includes('T')) {
