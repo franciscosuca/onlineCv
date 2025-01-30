@@ -8,8 +8,8 @@
 ## In Progress
 
 - Volunteering page
-    - 🚧 Create format for data (dates, position, location, description)
-    - 🕐 Based on project.config.json or readme.md
+    - ✅ Create format for data (dates, position, location, description)
+    - 🚧 Based on project.config.json or readme.md
     
 ## Backlog
 

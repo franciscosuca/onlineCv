@@ -4,25 +4,31 @@ export default function Page() {
     return (
         <section>
             <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-                My Volunterring
+                My Volunteering
             </h1>
-            {/* TODO: use the same format as app/blog/[slug]/page.tsx 
-                or enable a link for each entry to redirect the user 
-                to another page with all the details about the volunteering experience.
+            {/* TODO: create a function that populates the page based on the 
+                amount of volunteering experiences the user has
             */}
-            <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2">
+            <div className="flex flex-col space-y-2 mb-4">
                 <p className="text-neutral-600 dark:text-neutral-400 w-[100px] tabular-nums">
-                {formatDate('2022-01-01')}
+                    {formatDate('2022-01-01')}
                 </p>
-                <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
-                {`Position`}
+                <h1>Location</h1>
+                <p>Position</p>
+                <article className="prose">
+                    Description of the volunteering experience.
+                </article>
+            </div>
+
+            <div className="flex flex-col space-y-2 mb-4">
+                <p className="text-neutral-600 dark:text-neutral-400 w-[100px] tabular-nums">
+                    {formatDate('2022-01-01')}
                 </p>
-                <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
-                {`Location`}
-                </p>
-                <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
-                {`Description of the volunteering experience.`}
-                </p>
+                <h1>Location</h1>
+                <p>Position</p>
+                <article className="prose">
+                    Description of the volunteering experience.
+                </article>
             </div>
         </section>
     )
