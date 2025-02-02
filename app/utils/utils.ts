@@ -40,17 +40,21 @@ function getMDXData(dir) {
   return mdxFiles.map((file) => {
     let { metadata, content } = readMDXFile(path.join(dir, file))
     let slug = path.basename(file, path.extname(file))
-
     return {
       metadata,
       slug,
-      content,
+      content, //this will be the volunteer description
     }
   })
 }
 
 export function getBlogPosts() {
   return getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'))
+}
+
+export function getVolunteerPosts() 
+{
+  return getMDXData(path.join(process.cwd(), 'app', 'volunteering', 'posts'))
 }
 
 /**

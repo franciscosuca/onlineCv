@@ -9,14 +9,18 @@
 
 - Volunteering page
     - ✅ Create format for data (dates, position, location, description)
-    - 🚧 Based on project.config.json or readme.md
-    
+    - 🚧 Based on readme.mdx
+        - Create + notes with volunteering
+        - Change structure of the volunteering notes
+        - Loop through the notes
+
 ## Backlog
 
 - Projects page
 - Experience page
 - Skills page
 - App hosting & deployment pipeline
+- Store the notes in Blob Storage
 - Blog page?
 - Translation Options (DE, ES)
 
