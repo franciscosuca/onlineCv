@@ -4,24 +4,20 @@
 
 - ✅ About Me
 - ✅ Contact Footer
+- ✅ Volunteering page
+- ✅ Create format for data (dates, position, location, description)
 
 ## In Progress
 
-- Volunteering page
-    - ✅ Create format for data (dates, position, location, description)
-    - 🚧 Based on readme.mdx
-        - Create + notes with volunteering
-        - Change structure of the volunteering notes
-        - Loop through the notes
+- 🚧 Projects page
+- 🚧 Work Experience page
 
 ## Backlog
 
-- Projects page
-- Experience page
 - Skills page
 - App hosting & deployment pipeline
-- Store the notes in Blob Storage
-- Blog page?
+    - Store the notes in Blob Storage
+- Adapt Blog page
 - Translation Options (DE, ES)
 
 ## Bugs
