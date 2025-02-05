@@ -7,6 +7,9 @@ const navItems = {
   '/volunteering': {
     name: 'Volunteering',
   },
+  // '/blog': {
+  //   name: 'Blog',
+  // }
 }
 
 export function Navbar() {

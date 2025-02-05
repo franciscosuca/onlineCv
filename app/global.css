@@ -121,6 +121,10 @@ html {
   margin-bottom: 1.25em !important;
 }
 
+.italic-text {
+  font-style: italic;
+}
+
 pre::-webkit-scrollbar {
   display: none;
 }

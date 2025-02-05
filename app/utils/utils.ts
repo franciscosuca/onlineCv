@@ -2,10 +2,10 @@ import fs from 'fs'
 import path from 'path'
 
 type Metadata = {
-  title: string
-  publishedAt: string
-  summary: string
-  image?: string
+  date: string
+  company: string
+  location: string
+  jobTitle: string
 }
 
 function parseFrontmatter(fileContent: string) {
@@ -40,11 +40,10 @@ function getMDXData(dir) {
   return mdxFiles.map((file) => {
     let { metadata, content } = readMDXFile(path.join(dir, file))
     let slug = path.basename(file, path.extname(file))
-
     return {
       metadata,
       slug,
-      content,
+      content, //this will be the volunteer description
     }
   })
 }
@@ -53,6 +52,18 @@ export function getBlogPosts() {
   return getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'))
 }
 
+export function getVolunteerPosts() 
+{
+  return getMDXData(path.join(process.cwd(), 'app', 'volunteering', 'posts'))
+}
+
+/**
+ * Formats a date string and optionally includes a relative time description.
+ * 
+ * @param {string} date - The date string in 'YYYY-MM-DD' format.
+ * @param {boolean} [includeRelative=false] - Whether to include a relative time description.
+ * @returns {string} The formatted date string.
+ */
 export function formatDate(date: string, includeRelative = false) {
   let currentDate = new Date()
   if (!date.includes('T')) {

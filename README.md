@@ -19,24 +19,33 @@ https://portfolio-blog-starter.vercel.app
 
 You can choose from one of the following two methods to use this repository:
 
-### One-Click Deploy
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/solutions/blog&project-name=blog&repository-name=blog)
-
-### Clone and Deploy
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [pnpm](https://pnpm.io/installation) to bootstrap the example:
-
-```bash
-pnpm create next-app --example https://github.com/vercel/examples/tree/main/solutions/blog blog
-```
+### Deploy
 
 Then, run Next.js in development mode:
 
 ```bash
 pnpm dev
+```
+
+## How to generate data for the volunteering page
+
+### Create a file 
+
+On the path '/app/volunteering/posts', create a file with any name but in format '.mdx'
+
+### Populate the file
+
+On the file created on the previous step, fill the file with the following format:
+
+``` 
+---
+date: '<month.year>'
+company: '<company_name>'
+location: '<location>'
+jobTitle: '<jot_title>'
+---
+
+<Description about the position.>
 ```
 
 Deploy it to the cloud with [Vercel](https://vercel.com/templates) ([Documentation](https://nextjs.org/docs/app/building-your-application/deploying)).
