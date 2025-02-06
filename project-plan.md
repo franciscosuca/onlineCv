@@ -4,13 +4,15 @@
 
 - ✅ About Me
 - ✅ Contact Footer
-- ✅ Volunteering page
-- ✅ Create format for data (dates, position, location, description)
+- ✅ Define format for data (dates, position, location, description)
 
 ## In Progress
 
-- 🚧 Projects page
-- 🚧 Work Experience page
+- 🚧 Experience pages
+    - ✅ Volunteering page
+        --> Make a component out of page.tsx that can be used through the other pages
+    - 🚧 Projects page
+    - 🚧 Work Experience page
 
 ## Backlog
 

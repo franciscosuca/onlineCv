@@ -7,9 +7,9 @@ const navItems = {
   '/volunteering': {
     name: 'Volunteering',
   },
-  // '/blog': {
-  //   name: 'Blog',
-  // }
+  '/projects': {
+    name: 'Projects',
+  }
 }
 
 export function Navbar() {
