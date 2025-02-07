@@ -1,6 +1,6 @@
-import { formatDate, getVolunteerPosts  } from 'app/utils/utils'
+import { getPosts  } from 'app/utils/utils'
 
-let posts = getVolunteerPosts();
+let posts = getPosts('volunteering');
 
 export default function Page() {
     return (

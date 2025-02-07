@@ -52,9 +52,9 @@ export function getBlogPosts() {
   return getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'))
 }
 
-export function getVolunteerPosts() 
+export function getPosts(dir) 
 {
-  return getMDXData(path.join(process.cwd(), 'app', 'volunteering', 'posts'))
+  return getMDXData(path.join(process.cwd(), 'app', dir, 'posts'))
 }
 
 /**

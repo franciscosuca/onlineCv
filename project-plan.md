@@ -8,18 +8,18 @@
 
 ## In Progress
 
-- 🚧 Experience pages
+- 🚧 Experience pages (Component for pages about my experience as sofware engineer)
     - ✅ Volunteering page
-        --> Make a component out of page.tsx that can be used through the other pages
-    - 🚧 Projects page
+    - ✅ Projects page
     - 🚧 Work Experience page
 
 ## Backlog
 
+- Remove files and folders related to blog
+- App hosting & deployment pipeline (Store the notes in Blob Storage?)
 - Skills page
-- App hosting & deployment pipeline
-    - Store the notes in Blob Storage
-- Adapt Blog page
+- Add links to the projects
+- Add skills to the experiences
 - Translation Options (DE, ES)
 
 ## Bugs
