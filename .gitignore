@@ -39,3 +39,4 @@ next-env.d.ts
 # development
 app/volunteering/posts/*.mdx
 app/projects/posts/*.mdx
+app/workExperience/posts/*.mdx

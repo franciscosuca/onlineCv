@@ -9,7 +9,10 @@ const navItems = {
   },
   '/projects': {
     name: 'Projects',
-  }
+  },
+  '/workExperience': {
+    name: 'Work Experience',
+  },
 }
 
 export function Navbar() {
