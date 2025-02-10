@@ -6,6 +6,7 @@ type Metadata = {
   company: string
   location: string
   jobTitle: string
+  summary: string
 }
 
 function parseFrontmatter(fileContent: string) {

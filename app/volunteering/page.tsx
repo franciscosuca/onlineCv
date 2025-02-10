@@ -1,4 +1,4 @@
-import { PostsDetails } from 'app/components/postsDetails';
+import { PostList } from 'app/components/postsList';
 import { getPosts  } from 'app/utils/utils'
 
 let volunteeringPosts = getPosts('volunteering');
@@ -9,7 +9,7 @@ export default function Page() {
             <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
                 My Volunteering
             </h1>
-            <PostsDetails posts={volunteeringPosts}/>
+            <PostList posts={volunteeringPosts}/>
         </section>
     )
 }
