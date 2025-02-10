@@ -6,7 +6,9 @@ let workPosts = getPosts("workExperience");
 export default function Page() {
     return (
         <section>
-            <h1>Work Experience</h1>
+            <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
+                Work Experience
+            </h1>
             <PostList posts={ workPosts } />
         </section>
     );

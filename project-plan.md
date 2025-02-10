@@ -15,8 +15,9 @@
         - ✅ Modify current component to handle posts with summary
         - ✅ Create new component that shows the content from a work experience (managed through slugs)
         - ✅ Generate link for each work experience
-        - 🚧 Complete beta-component for work experience
+        - ✅ Complete beta-component for work experience
         - 🚧 Add the rest of the work experience
+        - 🚧 Make the interface exportable to other components
 
 ## Backlog
 
