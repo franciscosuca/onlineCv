@@ -9,6 +9,17 @@ type Metadata = {
   summary: string
 }
 
+export interface Post {
+  metadata: {
+      date: string;
+      location: string;
+      company: string;
+      jobTitle: string;
+      summary: string
+  };
+  content: string;
+}
+
 function parseFrontmatter(fileContent: string) {
   let frontmatterRegex = /---\s*([\s\S]*?)\s*---/
   let match = frontmatterRegex.exec(fileContent)

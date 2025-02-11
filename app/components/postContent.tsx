@@ -1,17 +1,9 @@
 import Link from "next/link";
+import { Post } from "app/utils/utils";
 
 interface PostContentProps {
-  workPost: {
-    metadata: { //TODO: this type is duplicated in app/utils/utils.ts
-      date: string;
-      location: string;
-      company: string;
-      jobTitle: string;
-      summary: string;
-    };
-    content: string;
-    slug: string;
-  }
+  workPost: Post;
+  slug: string;
 }
 
 export function PostContent( {workPost} : PostContentProps) {

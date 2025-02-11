@@ -1,17 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { ArrowIcon } from 'app/components/arrowIcon';
-
-interface Post {
-    metadata: {
-        date: string;
-        location: string;
-        company: string;
-        jobTitle: string;
-        summary: string
-    };
-    content: string;
-}
+import { Post } from 'app/utils/utils';
 
 interface PostsDetailsProps {
     posts: Post[];
