@@ -39,7 +39,8 @@ On the file created on the previous step, fill the file with the following forma
 
 ``` 
 ---
-date: '<month.year>'
+sdate: '<start_month.year>'
+edate: '<end_month.year>'
 company: '<company_name>'
 location: '<location>'
 jobTitle: '<jot_title>'

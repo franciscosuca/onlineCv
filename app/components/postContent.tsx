@@ -10,7 +10,7 @@ export function PostContent( {workPost} : PostContentProps) {
   return (
     <div>
       <p className="text-neutral-600 dark:text-neutral-400 tabular-nums">
-          {workPost.metadata.date}
+          {workPost.metadata.sdate} - {workPost.metadata.edate}
       </p>
       <p>{workPost.metadata.location}, {workPost.metadata.company}</p>
       <p className="italic-text">{workPost.metadata.jobTitle}</p>

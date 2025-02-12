@@ -16,12 +16,13 @@
         - ✅ Create new component that shows the content from a work experience (managed through slugs)
         - ✅ Generate link for each work experience
         - ✅ Complete beta-component for work experience
-        - 🚧 Add the rest of the work experience
-        - 🚧 Make the interface exportable to other components
+        - ✅ Make the interface exportable to other components
+        - ✅ Add the rest of the work experience
+    
+    - 🚧 Remove files and folders related to blog
 
 ## Backlog
 
-- Remove files and folders related to blog
 - App hosting & deployment pipeline (Store the notes in Blob Storage?)
 - Skills page (related to the skills used for the work done)
 - Translation Options (DE, ES)

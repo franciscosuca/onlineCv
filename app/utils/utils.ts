@@ -2,7 +2,8 @@ import fs from 'fs'
 import path from 'path'
 
 type Metadata = {
-  date: string
+  sdate: string
+  edate: string
   company: string
   location: string
   jobTitle: string
@@ -11,7 +12,8 @@ type Metadata = {
 
 export interface Post {
   metadata: {
-      date: string;
+      sdate: string;
+      edate: string;
       location: string;
       company: string;
       jobTitle: string;
