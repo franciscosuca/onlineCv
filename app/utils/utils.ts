@@ -2,10 +2,24 @@ import fs from 'fs'
 import path from 'path'
 
 type Metadata = {
-  date: string
+  sdate: string
+  edate: string
   company: string
   location: string
   jobTitle: string
+  summary: string
+}
+
+export interface Post {
+  metadata: {
+      sdate: string;
+      edate: string;
+      location: string;
+      company: string;
+      jobTitle: string;
+      summary: string
+  };
+  content: string;
 }
 
 function parseFrontmatter(fileContent: string) {
@@ -43,59 +57,12 @@ function getMDXData(dir) {
     return {
       metadata,
       slug,
-      content, //this will be the volunteer description
+      content,
     }
   })
 }
 
-export function getBlogPosts() {
-  return getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'))
-}
-
-export function getVolunteerPosts() 
+export function getPosts(dir) 
 {
-  return getMDXData(path.join(process.cwd(), 'app', 'volunteering', 'posts'))
-}
-
-/**
- * Formats a date string and optionally includes a relative time description.
- * 
- * @param {string} date - The date string in 'YYYY-MM-DD' format.
- * @param {boolean} [includeRelative=false] - Whether to include a relative time description.
- * @returns {string} The formatted date string.
- */
-export function formatDate(date: string, includeRelative = false) {
-  let currentDate = new Date()
-  if (!date.includes('T')) {
-    date = `${date}T00:00:00`
-  }
-  let targetDate = new Date(date)
-
-  let yearsAgo = currentDate.getFullYear() - targetDate.getFullYear()
-  let monthsAgo = currentDate.getMonth() - targetDate.getMonth()
-  let daysAgo = currentDate.getDate() - targetDate.getDate()
-
-  let formattedDate = ''
-
-  if (yearsAgo > 0) {
-    formattedDate = `${yearsAgo}y ago`
-  } else if (monthsAgo > 0) {
-    formattedDate = `${monthsAgo}mo ago`
-  } else if (daysAgo > 0) {
-    formattedDate = `${daysAgo}d ago`
-  } else {
-    formattedDate = 'Today'
-  }
-
-  let fullDate = targetDate.toLocaleString('en-us', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-  })
-
-  if (!includeRelative) {
-    return fullDate
-  }
-
-  return `${fullDate} (${formattedDate})`
+  return getMDXData(path.join(process.cwd(), 'app', dir, 'posts'))
 }

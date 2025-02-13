@@ -7,9 +7,12 @@ const navItems = {
   '/volunteering': {
     name: 'Volunteering',
   },
-  // '/blog': {
-  //   name: 'Blog',
-  // }
+  '/projects': {
+    name: 'Projects',
+  },
+  '/workExperience': {
+    name: 'Work Experience',
+  },
 }
 
 export function Navbar() {

@@ -43,6 +43,10 @@ html {
   cursor: pointer;
 }
 
+.underline-text {
+  text-decoration: underline;
+}
+
 .anchor:hover {
   @apply visible;
 }

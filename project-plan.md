@@ -1,25 +1,25 @@
-# V0.1
+# V1.0
 
-## Features
+### Features
 
-- ✅ About Me
+- ✅ About Me page
 - ✅ Contact Footer
-- ✅ Volunteering page
-- ✅ Create format for data (dates, position, location, description)
+- ✅ Define format for data (dates, position, location, description)
+- ✅ Experience pages (Component for pages about my experiences as sofware engineer)
+- ✅ Remove files and folders related to blog
+- 🚧 App hosting & deployment pipeline
 
-## In Progress
+# V1.1.0
 
-- 🚧 Projects page
-- 🚧 Work Experience page
+### Features
 
-## Backlog
+- TBD
 
-- Skills page
-- App hosting & deployment pipeline
-    - Store the notes in Blob Storage
-- Adapt Blog page
+# Backlog
+
+- Skills page (related to the skills used for the work done)
 - Translation Options (DE, ES)
 
-## Bugs
+### Bugs
 
 - [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
