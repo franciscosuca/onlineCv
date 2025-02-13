@@ -1,6 +1,13 @@
 import { PostContent } from "app/components/postContent";
 import { getPosts } from "app/utils/utils";
 
+export const generateStaticParams = () => {
+    let workPosts = getPosts("workExperience");
+    return workPosts.map(post => ({
+        params: { slug: post.metadata.company }
+    }));
+}
+
 export default function Page({ params }: {params: {slug: string}}) {
     const { slug } = params;
     let workPost = getPosts("workExperience")
