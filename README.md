@@ -1,37 +1,34 @@
-# Portfolio Blog Starter
+# Portfolio Starter
 
-This is a porfolio site template complete with a blog. Includes:
-
-- MDX and Markdown support
-- Optimized for SEO (sitemap, robots, JSON-LD schema)
-- RSS Feed
-- Dynamic OG images
-- Syntax highlighting
-- Tailwind v4
-- Vercel Speed Insights / Web Analytics
-- Geist font
+This is my starter portfolio that I worked on based on the template from [Vercel](https://portfolio-blog-starter.vercel.app).
 
 ## Demo
 
+Demonstration of the original website cloned from Vercel, with the blogs pages.
+
 https://portfolio-blog-starter.vercel.app
+
+**NOTE**: This URL will be updated with a website that relies on the code used by this project.
 
 ## How to Use
 
-You can choose from one of the following two methods to use this repository:
+Clone this repository and then run:
+```bash
+pnpm install
+```
 
-### Deploy
-
-Then, run Next.js in development mode:
-
+Afterwards
 ```bash
 pnpm dev
 ```
 
-## How to generate data for the volunteering page
+**Not using pnpm?** Check [pnpm's website](https://pnpm.io/installation) to know how to install it.
+
+## How to generate data for the projects/volunteering/workExperience page(s)
 
 ### Create a file 
 
-On the path '/app/volunteering/posts', create a file with any name but in format '.mdx'
+On the path '/app/<folder>/posts', create a file with any name but in format '.mdx'
 
 ### Populate the file
 
@@ -46,7 +43,10 @@ location: '<location>'
 jobTitle: '<jot_title>'
 ---
 
-<Description about the position.>
+* <Description about the position.>
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/templates) ([Documentation](https://nextjs.org/docs/app/building-your-application/deploying)).
+
+## Contact
+
+Please initiate an issue to report any problems with this project.

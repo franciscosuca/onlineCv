@@ -13,7 +13,7 @@ export default function Page({ params }: {params: {slug: string}}) {
                 Experience at {slug}
             </h1>
             {workPost ? (
-                <PostContent workPost={workPost} />
+                <PostContent workPost={workPost} slug={slug} />
             ) : (
                 <p>Post not found</p>
             )}
