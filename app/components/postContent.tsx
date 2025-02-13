@@ -16,7 +16,7 @@ export function PostContent( {workPost} : PostContentProps) {
       <p className="italic-text">{workPost.metadata.jobTitle}</p>
       {workPost.content.split('*').map((task, index) => (
         index === 0 ? null:
-          <div> <br />
+          <div key={index}> <br />
             <article key={index} className="prose">- {task}</article>
           </div>
         ))
