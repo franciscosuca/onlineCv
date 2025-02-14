@@ -31,10 +31,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: List files #Debugging errors on the pipeline
-        run: pwd
-      - name: List files #Debugging errors on the pipeline
-        run: ls -la
       - name: Detect package manager
         id: detect-package-manager
         run: |
@@ -47,7 +43,6 @@ jobs:
             echo "manager=pnpm" >> $GITHUB_OUTPUT
             echo "command=install" >> $GITHUB_OUTPUT
             echo "runner=pnpm" >> $GITHUB_OUTPUT
-            echo "pnpm was selected!"
             exit 0
           elif [ -f "${{ github.workspace }}/package.json" ]; then
             echo "manager=npm" >> $GITHUB_OUTPUT
@@ -58,14 +53,14 @@ jobs:
             echo "Unable to determine package manager"
             exit 1
           fi
-      
-      - name: List files #Debugging errors on the pipeline
-        run: ls -la
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
+      - name: Install pnpm # Add this step to install pnpm
+        if: steps.detect-package-manager.outputs.manager == 'pnpm'
+        run: npm install -g pnpm
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
