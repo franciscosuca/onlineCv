@@ -7,17 +7,16 @@
 - ✅ Define format for data (dates, position, location, description)
 - ✅ Experience pages (Component for pages about my experiences as sofware engineer)
 - ✅ Remove files and folders related to blog
-- 🚧 App hosting & deployment pipeline
+- ✅ App hosting & deployment pipeline
 
 # V1.1.0
 
 ### Features
 
-- TBD
+- Skills page (related to the skills used for the work done)
 
 # Backlog
 
-- Skills page (related to the skills used for the work done)
 - Translation Options (DE, ES)
 
 ### Bugs

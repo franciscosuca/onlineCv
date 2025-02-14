@@ -3,13 +3,17 @@ export default function Page() {
   return (
     <section>
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        My Portfolio
+        Welcome to my professional bio
       </h1>
       <p className="mb-4">
-        {`With a strong foundation in IoT system development and edge computing automation, my tenure at GEA Group has been marked by pioneering software solutions that enhance device management. Our team has innovated with digital twin technology, automated workflows, and proactive maintenance strategies.`}
+        {`With a background in telecommunications and a passion for software development, 
+        I've been able to work on a variety of projects that have helped me grow as a professional
+        in this software development world.`}
       </p>
       <p className="mb-4">
-        {'At Livello Food, my role as an IoT/Backend Engineer laid the groundwork for intelligent kiosk systems, cementing my expertise in developing robust backend architectures and secure communication protocols. The drive for efficient and sustainable software solutions remains my guiding principle, always aiming to deliver tangible value through technology.'}
+        {`With this website I am trying to put together a portfolio of my work. Though as of now,
+        you will be able to see my experience and some of the projects and jobs I have worked on.
+        I am looking forward to adding more projects and experiences to this website, so stay tuned.`}
       </p>
     </section>
   )
