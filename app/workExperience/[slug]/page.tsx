@@ -1,10 +1,10 @@
 import { PostContent } from "app/components/postContent";
 import { getPosts } from "app/utils/utils";
 
-export const generateStaticParams = () => {
-    let workPosts = getPosts("workExperience");
+export async function generateStaticParams(){
+    let workPosts = await getPosts("workExperience");
     return workPosts.map(post => ({
-        params: { slug: post.metadata.company }
+          slug: post.metadata.company 
     }));
 }
 
