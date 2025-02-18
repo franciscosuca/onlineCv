@@ -13,6 +13,9 @@ const navItems = {
   '/workExperience': {
     name: 'Work Experience',
   },
+  '/skills': {
+    name: 'Skills',
+  },
 }
 
 export function Navbar() {

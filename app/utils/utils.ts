@@ -8,6 +8,7 @@ type Metadata = {
   location: string
   jobTitle: string
   summary: string
+  skills: string
 }
 
 export interface Post {
@@ -65,4 +66,22 @@ function getMDXData(dir) {
 export function getPosts(dir) 
 {
   return getMDXData(path.join(process.cwd(), 'app', dir, 'posts'))
+}
+
+export function getSkills() {
+  let skills: string[] = []
+  let skillCategories = ['volunteering', 'projects', 'workExperience']
+
+  skillCategories.forEach(category => {
+    getPosts(category).forEach((post) => {
+      console.log(post.metadata.skills)
+      if (post.metadata.skills !== undefined) { 
+        post.metadata.skills.split(';').forEach((skill) => {
+          skills.push(skill)
+        })
+      }
+    })
+  })
+
+  return skills
 }
