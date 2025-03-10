@@ -8,13 +8,38 @@ const testData = [
     { date: '2021-01-03', value: 9800 },
     { date: '2021-01-04', value: 3908 },
 ]
+const testProgramingExperience = [
+    {
+        name: 'Java',
+        totalYears: 1,
+        yearsAtCompany: {
+            'Company A': 1,
+        }
+    },
+    {
+        name: 'JavaScript',
+        totalYears: 4,
+        yearsAtCompany: {
+            'Company A': 2,
+            'Company B': 2
+        }
+    },
+    {
+        name: 'Python',
+        totalYears: 5,
+        yearsAtCompany: {
+            'Company A': 3,
+            'Company B': 2
+        }
+    },
+]
 
 const testDataBar = [
     {
       name: 'Page A',
       value: 4000,
-      pv: 2400,
-      amt: 2400,
+      pv: 2100,
+      amt: 2300,
     },
     {
       name: 'Page B',
@@ -23,13 +48,18 @@ const testDataBar = [
       amt: 2210,
     },]
 
+// TODO-1: define method to get data from skills for the graph above
+// TODO-2: create seconds graph for the technologies
+// TODO-3: create a npm package for the graph component?
+
 export default function Page() {
     return (
-        <section className="grid xl:grid-cols-3 lg:grid-cols-2 w-full gap-10 max-w-[1400px]">
+        // Change the grid size for the cols below when using XL screen (greater than 1280 px)
+        <section className="grid xl:grid-cols-2 w-full gap-10 max-w-[1400px]">
             <h1  className="mb-8 text-2xl font-semibold tracking-tighter">Skills</h1>
             <p>Here is a list of my skills:</p>
             <GridItem title="Languages">
-                <GraphBarComponent sData={testData} />
+                <GraphBarComponent sData={testDataBar} />
             </GridItem>
 
             <GridItem title="Skills">
