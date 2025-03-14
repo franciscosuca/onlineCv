@@ -13,23 +13,31 @@ const testProgramingExperience = [
         name: 'Java',
         totalYears: 1,
         yearsAtCompany: {
-            'Company A': 1,
+            'Livello/HSRW': 1,
+        }
+    },
+    {
+        name: 'C#',
+        totalYears: 1,
+        yearsAtCompany: {
+            'GEA': 3,
         }
     },
     {
         name: 'JavaScript',
         totalYears: 4,
         yearsAtCompany: {
-            'Company A': 2,
-            'Company B': 2
+            'Livello/HSRW': 2,
+            'GEA': 2
         }
     },
     {
         name: 'Python',
-        totalYears: 5,
+        totalYears: 6,
         yearsAtCompany: {
-            'Company A': 3,
-            'Company B': 2
+            'Livello/HSRW': 2,
+            'GEA': 3,
+            'Huawei': 1
         }
     },
 ]
@@ -58,13 +66,14 @@ export default function Page() {
         <section className="grid xl:grid-cols-2 w-full gap-10 max-w-[1400px]">
             <h1  className="mb-8 text-2xl font-semibold tracking-tighter">Skills</h1>
             <p>Here is a list of my skills:</p>
-            <GridItem title="Languages">
-                <GraphBarComponent sData={testDataBar} />
-            </GridItem>
 
+            <GridItem title="Programming Experience">
+                <GraphBarComponent sData={testProgramingExperience} />
+            </GridItem>
+{/* 
             <GridItem title="Skills">
                 <GraphComponent sData={testData} />
-            </GridItem>
+            </GridItem> */}
         </section>
     );
     {/* <ul>
