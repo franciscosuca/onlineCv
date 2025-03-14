@@ -1,6 +1,7 @@
 import { PostContent } from "app/components/postContent";
 import { getPosts } from "app/utils/utils";
 
+// This function gets called at build time
 export async function generateStaticParams(){
     let workPosts = await getPosts("workExperience");
     return workPosts.map(post => ({
@@ -8,11 +9,11 @@ export async function generateStaticParams(){
     }));
 }
 
-export default function Page({ params }: {params: {slug: string}}) {
-    const { slug } = params;
-    let workPost = getPosts("workExperience")
-        .find(post =>
-            post.metadata.company === slug);
+export default async function Page({ params }) {
+    const { slug } = await params;
+    let workPosts = await getPosts("workExperience");
+    let workPost = workPosts.find(post =>
+        post.metadata.company === slug);
     
     return (
         <div>
