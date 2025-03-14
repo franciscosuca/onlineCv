@@ -22,6 +22,12 @@ Afterwards
 pnpm dev
 ```
 
+## Test build before triggering Github actions
+
+````
+pnpm build
+````
+
 **Not using pnpm?** Check [pnpm's website](https://pnpm.io/installation) to know how to install it.
 
 ## How to generate data for the projects/volunteering/workExperience page(s)
