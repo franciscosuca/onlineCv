@@ -1,5 +1,6 @@
-import { getSkills } from "app/utils/utils";
+// import { getSkills } from "app/utils/utils";
 import {GraphBarComponent} from "app/components/graphBarComponent";
+
 
 // Temporary data for the graph
 const testProgramingExperience = [
