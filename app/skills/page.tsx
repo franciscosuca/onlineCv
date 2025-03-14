@@ -45,7 +45,7 @@ export default function Page() {
         // TODO: Change the grid size for the cols below when using XL screen (greater than 1280 px)
         <section className="grid xl:grid-cols-2 w-full gap-10 max-w-[1400px]">
             <h1  className="mb-8 text-2xl font-semibold tracking-tighter">Skills</h1>
-            <p>Here is a list of my skills:</p>
+            <p>In the graph below you can find the years of experience that I have collected per programming language on each company that I have work for.</p>
 
             <GridItem title="Programming Experience">
                 <GraphBarComponent skillData={testProgramingExperience} />
