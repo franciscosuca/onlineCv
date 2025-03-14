@@ -1,13 +1,7 @@
 import { getSkills } from "app/utils/utils";
-import {GraphComponent} from "app/components/graphComponent";
 import {GraphBarComponent} from "app/components/graphBarComponent";
 
-const testData = [
-    { date: '2021-01-01', value: 2400 },
-    { date: '2021-01-02', value: 1398 },
-    { date: '2021-01-03', value: 9800 },
-    { date: '2021-01-04', value: 3908 },
-]
+// Temporary data for the graph
 const testProgramingExperience = [
     {
         name: 'Java',
@@ -42,38 +36,20 @@ const testProgramingExperience = [
     },
 ]
 
-const testDataBar = [
-    {
-      name: 'Page A',
-      value: 4000,
-      pv: 2100,
-      amt: 2300,
-    },
-    {
-      name: 'Page B',
-      value: 3000,
-      pv: 1398,
-      amt: 2210,
-    },]
-
 // TODO-1: define method to get data from skills for the graph above
 // TODO-2: create seconds graph for the technologies
 // TODO-3: create a npm package for the graph component?
 
 export default function Page() {
     return (
-        // Change the grid size for the cols below when using XL screen (greater than 1280 px)
+        // TODO: Change the grid size for the cols below when using XL screen (greater than 1280 px)
         <section className="grid xl:grid-cols-2 w-full gap-10 max-w-[1400px]">
             <h1  className="mb-8 text-2xl font-semibold tracking-tighter">Skills</h1>
             <p>Here is a list of my skills:</p>
 
             <GridItem title="Programming Experience">
-                <GraphBarComponent sData={testProgramingExperience} />
+                <GraphBarComponent skillData={testProgramingExperience} />
             </GridItem>
-{/* 
-            <GridItem title="Skills">
-                <GraphComponent sData={testData} />
-            </GridItem> */}
         </section>
     );
     {/* <ul>
