@@ -11,7 +11,7 @@ import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Legend, CartesianGrid
 interface skillData {
     name: string;
     totalYears: number;
-    yearsAtCompany: Record<string, number>;
+    yearsAtCompany: object;
 }
 
 interface GraphBarComponentProps {
@@ -24,7 +24,7 @@ export function GraphBarComponent({ skillData }: GraphBarComponentProps) {
     const companies = Array.from(new Set(skillData.flatMap(item => Object.keys(item.yearsAtCompany))));
     // Define colors for the bars
     const colors = ['#3674B5', '#578FCA', '#A1E3F9'];
-
+    
     return (
         <ResponsiveContainer width="100%" height="100%">
             <BarChart width={600} height={300} data={skillData}>
