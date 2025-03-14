@@ -7,6 +7,8 @@
 - ✅ Define format for data (dates, position, location, description)
 - ✅ Experience pages (Component for pages about my experiences as software engineer)
 - ✅ Remove files and folders from original template related to blog
+- ✅ Experience pages (Component for pages about my experiences as software engineer)
+- ✅ Remove files and folders from original template related to blog
 - ✅ App hosting & deployment pipeline
 
 # V1.1.0
