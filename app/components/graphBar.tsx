@@ -13,7 +13,7 @@ interface GraphBarComponentProps {
 }
 
 // Define colors for the bars
-const colors = ['#3674B5', '#578FCA', '#A1E3F9', '#F9A1E3']
+const colors = ['#3674B5', '#578FCA', '#A1E3F9', '#D1F8EF']
 
 // Get all unique companies names from the data
 function flatCompanies(skillData: skillData[]) {
@@ -38,7 +38,9 @@ export function GraphBarVer({ skillData }: GraphBarComponentProps) {
                 }}
                 >
                 <XAxis dataKey="name"/>
-                <YAxis dataKey="totalYears"/>
+                <YAxis
+                    dataKey="totalYears"
+                    domain={[0,6]}/>
                 <Legend />
                 <Tooltip />
                 {companies.map((company, index) => (
@@ -63,7 +65,7 @@ export function GraphBarHor({ skillData }: GraphBarComponentProps) {
             <ComposedChart
                 layout="vertical"
                 width={600}
-                height={400}
+                height={500}
                 data={skillData}
                 margin={{
                     top: 20,
@@ -72,8 +74,13 @@ export function GraphBarHor({ skillData }: GraphBarComponentProps) {
                     left: 20,
                 }}
                 >
-                <XAxis type="number"/>
-                <YAxis dataKey="name" type="category"/>
+                <XAxis
+                    type="number"
+                    domain={[0,6]}/>
+                <YAxis
+                    dataKey="name"
+                    type="category"
+                    tick={{ fontSize: 10 }}/>
                 <Legend />
                 <Tooltip />
                 {companies.map((company, index) => (
