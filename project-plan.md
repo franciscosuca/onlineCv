@@ -72,7 +72,6 @@
 
 - Translation Options (DE, ES)
 
-
 ### Bugs
 
-- Add new errors from the console
+- TODO: add new errors from the console
