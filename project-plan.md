@@ -11,13 +11,49 @@
 - ✅ Remove files and folders from original template related to blog
 - ✅ App hosting & deployment pipeline
 
-# V1.1.0
+# V1.1.2
 
 ### Features
 
-🚧- Deploy the application on Azure Web Application
-    -- Adapt the pipeline (Github Actions) to deploy directly to AZ
-🚧- Skills page (related to the skills used for the work done)
+✅- Skills page with two graphs
+✅- Add Hambuger menu for small screens
+
+
+# v1.1.3
+
+🚧- Add semantic release to the project?
+
+- Migrate  static_page to App Service on [Azure](https://learn.microsoft.com/en-us/azure/app-service/deploy-github-actions?tabs=openid%2Caspnetcore)
+
+-- Create pipeline on Github to connect with AZ (Deploy webapp to azure static webapp)
+- New design?
+    - Turn this projec into your "Online CV" --> OnlineCv + DataHandler
+        - Homepage. [Use this website as a reference](https://ashishps.com)
+        - About me
+            - Skills
+            - Volunteership
+            - Work Experience
+        - Footer
+            - LinkedIn
+            - GitHub
+            - [Stackoverflow](https://stackoverflow.com/users/5208441/imlearningdontjudgeme)
+
+
+# v1.1.4
+
+- Retrieve data from blob-storage
+-- Use .json files instead of .mdx ?
+-- Create subscription and resources on AZ
+-- Store files with experience on the cloud
+
+# v1.2.0
+
+- Version uses the component as a NPM package
+-- IMPORTANT: Perhaps this could be its own project! To give it an input and create a graph based on the year of experience in different positions for different technologies
+
+# v1.2.1
+
+- Version of the skill page with icons and images
 ?-- Download the icons from the different technologies
 ?--- Generate the logos for the platforms & other technologies(i.e., 
 [Promo](https://promo.com/tools/image-resizer/)
@@ -28,22 +64,15 @@
 ?-- Store the icons in a specific folder (they should use the same size)
 ?-- Implement the icon of each technology based on the step above.
 
-✅-- Define how the technologies per experiecen should be stored (i.e., per position or position's task)
-✅-- Create page to generate a graph based on the technologies listed on the work experiences
-✅-- Create chart-component that will representate your programming experience just like in Canvas
-🚧-- Create chart-component that will representate your technology experience just like in Canvas
+# v2.0.0
 
-🕐-- IMPORTANT: Perhaps this could be its own project! To give it an input and create a graph based on the year of experience in different positions for different technologies
+- Migrate the website to the payload framework. This will help you to manage the content dynimically
 
 # Backlog
 
 - Translation Options (DE, ES)
-- Migrate static website to [Azure](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-static-site-github-actions?tabs=openid)
--- Use .json files instead of .mdx ?
--- Create subscription and resources on AZ
--- Store files with experience on the cloud
--- Create pipeline on Github to connect with AZ (Deploy webapp to azure static webapp)
+
 
 ### Bugs
 
-- [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: Unable to snapshot resolve dependencies
+- Add new errors from the console
