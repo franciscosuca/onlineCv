@@ -1,5 +1,9 @@
 {
   "private": true,
+  "name": "online-cv",
+  "description": "Your package description",
+  "author": "Francisco Susana",
+  "license": "MIT",
   "version": "1.2.1",
   "scripts": {
     "dev": "next dev",
