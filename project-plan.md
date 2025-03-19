@@ -19,13 +19,12 @@
 ✅- Add Hambuger menu for small screens
 
 
-# v1.2.0
+# v1.2.2
 
-## Non-user Features
+✅- Add semantic release to the project
+✅ - Setup Semantic for auto-generating a changelog
 
-🚧- Add semantic release to the project?
-
-# v1.2.1
+# v1.2.4
 
 ## Feature 
 🕐- New design?
