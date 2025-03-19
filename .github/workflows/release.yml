@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - dev
+  workflow_dispatch: #Manual trigger for the workflow
+
 permissions:
   contents: read
 jobs:
@@ -25,7 +27,6 @@ jobs:
         with:
           node-version: 'lts/*'
       - name: Install pnpm
-        # if: steps.detect-package-manager.outputs.manager == 'pnpm'
         run: npm install -g pnpm
       - name: Install dependencies
         run: pnpm install
