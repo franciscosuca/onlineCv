@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - dev
+      - feature/semantic-release
   workflow_dispatch: #Manual trigger for the workflow
 
 permissions:
