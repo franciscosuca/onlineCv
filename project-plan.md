@@ -23,7 +23,7 @@
 
 ✅- Add semantic release to the project
 🚧 - Setup Semantic for auto-generating a changelog
-
+🚧 - Enable a tag generator
 
 # v1.2.1
 
