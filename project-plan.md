@@ -24,7 +24,7 @@
 ✅- Add semantic release to the project
 ✅ - Setup Semantic for auto-generating a changelog
 
-# v1.2.4
+# v1.2.3
 
 ## Feature 
 🕐- New design?
@@ -32,7 +32,6 @@
         - Homepage. [Use this website as a reference](https://ashishps.com)
         - About me
             - Skills
-         
             - Work Experience
         - Footer
             - LinkedIn
