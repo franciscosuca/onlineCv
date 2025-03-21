@@ -27,14 +27,14 @@
 # v1.2.6
 
 - ~~Update About page and footer~~
-- Improve hamburger menu: it should show the nav-items in vertical
-- Add link to portfolio page created with Vercel
-- Replace react webpage icon
+- ~~Improve hamburger menu by putting in vertical the  bvbvvbnav-items in vertical~~
 
 # 1.2.7
 
+- Add link to portfolio page created with Vercel
+- Replace react webpage icon
 - Create the pending task for the project on GIthub
-- Manually addd old version details to the project (changelog)
+- Manually add old version details to the project (changelog)
 
 # v1.3.0 --> Time to work with AZ stuff for Az204 
 
