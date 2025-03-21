@@ -8,9 +8,9 @@ on:
 
 permissions:
   contents: read
+
+#TODO: Add this job to the main.yml workflow
 jobs:
-  # Semmantic Release
-  #TODO: Add this job to the main.yml workflow
   semantic-release:
     runs-on: ubuntu-latest
     permissions:
@@ -18,12 +18,12 @@ jobs:
       issues: write
       pull-requests: write
       id-token: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-          # persist-credentials: false
+          fetch-depth: 0 #This option ensures that the entire Git history is fetched, not just the latest commit.
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
