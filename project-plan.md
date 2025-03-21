@@ -24,27 +24,24 @@
 ✅- Add semantic release to the project
 ✅ - Setup Semantic for auto-generating a changelog
 
-# v1.2.3
+# v1.2.6
 
-## Feature 
-🕐- New design?
-    - Turn this projec into your "Online CV" --> OnlineCv + DataHandler
-        - Homepage. [Use this website as a reference](https://ashishps.com)
-        - About me
-            - Skills
-            - Work Experience
-        - Footer
-            - LinkedIn
-            - GitHub
-            - [Stackoverflow](https://stackoverflow.com/users/5208441/imlearningdontjudgeme)
+- ~~Update About page and footer~~
+- Improve hamburger menu: it should show the nav-items in vertical
+- Add link to portfolio page created with Vercel
+- Replace react webpage icon
 
+# 1.2.7
+
+- Create the pending task for the project on GIthub
+- Manually addd old version details to the project (changelog)
 
 # v1.3.0 --> Time to work with AZ stuff for Az204 
 
-- Retrieve data from blob-storage
--- Use .json files instead of .mdx ?
--- Create subscription and resources on AZ
--- Store files with experience on the cloud
+- Create CosmoDB and create connector on the project to fetch data from there
+- Create AZ function that updates/create cosmosDB item(s) once the blob is update
+- Retrieve data from cosmosDB
+- Make sure that it will continue working despite of using a static website
 
 ❓- Migrate  static_page to App Service on [Azure](https://learn.microsoft.com/en-us/azure/app-service/deploy-github-actions?tabs=openid%2Caspnetcore)
 ❓- Create pipeline on Github to connect with AZ (Deploy webapp to azure static webapp)
@@ -56,6 +53,7 @@
 
 # vX.1.1
 
+- Automate the way to generate the data from your CV
 - Version of the skill page with icons and images
 ?-- Download the icons from the different technologies
 ?--- Generate the logos for the platforms & other technologies(i.e., 

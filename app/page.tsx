@@ -3,7 +3,7 @@ export default function Page() {
   return (
     <section>
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        Welcome to my professional bio
+        Welcome to Francisco's Online CV 👋🏼
       </h1>
       <p className="mb-4">
         {`With a background in telecommunications and a passion for software development, 
@@ -11,7 +11,7 @@ export default function Page() {
         in this software development world.`}
       </p>
       <p className="mb-4">
-        {`With this website I am trying to put together a portfolio of my work. Though as of now,
+        {`With this website I am trying to put most of my experience together. Though as of now,
         you will be able to see my experience and some of the projects and jobs I have worked on.
         I am looking forward to adding more projects and experiences to this website, so stay tuned.`}
       </p>

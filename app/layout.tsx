@@ -11,10 +11,10 @@ import { baseUrl } from './sitemap'
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Francisco\'s prof. bio',
+    default: 'Francisco\'s Online CV',
     template: '%s | Portfolio ',
   },
-  description: 'This is my portfolio.',
+  description: 'This is my online CV.',
   openGraph: {
     title: 'Welocme to my professional bio',
     description: 'This is my professional bio.',
