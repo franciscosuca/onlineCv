@@ -2,6 +2,10 @@
 
 This is my starter portfolio that I worked on based on the template from [Vercel](https://portfolio-blog-starter.vercel.app).
 
+## Versioning
+
+I follow the format from [semantic-release](https://semantic-release.gitbook.io/semantic-release).
+
 ## Demo
 
 Demonstration of the original website cloned from Vercel, with the blogs pages.

@@ -3,12 +3,14 @@ on:
   push:
     branches:
       - dev
+      - main
   workflow_dispatch: #Manual trigger for the workflow
 
 permissions:
   contents: read
+
+#TODO: Add this job to the main.yml workflow
 jobs:
-  # Semmantic Release
   semantic-release:
     runs-on: ubuntu-latest
     permissions:
@@ -20,8 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-          # persist-credentials: false
+          fetch-depth: 0 #This option ensures that the entire Git history is fetched, not just the latest commit.
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -30,9 +31,6 @@ jobs:
         run: npm install -g pnpm
       - name: Install dependencies
         run: pnpm install
-        # run: npm clean-install
-      # - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
-      #   run: npm audit signatures
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -19,34 +19,29 @@
 ✅- Add Hambuger menu for small screens
 
 
-# v1.2.0
+# v1.2.2
 
-## Non-user Features
+✅- Add semantic release to the project
+✅ - Setup Semantic for auto-generating a changelog
 
-🚧- Add semantic release to the project?
+# v1.2.6
 
-# v1.2.1
+- ~~Update About page and footer~~
+- ~~Improve hamburger menu by putting in vertical the  bvbvvbnav-items in vertical~~
 
-## Feature 
-🕐- New design?
-    - Turn this projec into your "Online CV" --> OnlineCv + DataHandler
-        - Homepage. [Use this website as a reference](https://ashishps.com)
-        - About me
-            - Skills
-         
-            - Work Experience
-        - Footer
-            - LinkedIn
-            - GitHub
-            - [Stackoverflow](https://stackoverflow.com/users/5208441/imlearningdontjudgeme)
+# 1.2.7
 
+- Add link to portfolio page created with Vercel
+- Replace react webpage icon
+- Create the pending task for the project on GIthub
+- Manually add old version details to the project (changelog)
 
 # v1.3.0 --> Time to work with AZ stuff for Az204 
 
-- Retrieve data from blob-storage
--- Use .json files instead of .mdx ?
--- Create subscription and resources on AZ
--- Store files with experience on the cloud
+- Create CosmoDB and create connector on the project to fetch data from there
+- Create AZ function that updates/create cosmosDB item(s) once the blob is update
+- Retrieve data from cosmosDB
+- Make sure that it will continue working despite of using a static website
 
 ❓- Migrate  static_page to App Service on [Azure](https://learn.microsoft.com/en-us/azure/app-service/deploy-github-actions?tabs=openid%2Caspnetcore)
 ❓- Create pipeline on Github to connect with AZ (Deploy webapp to azure static webapp)
@@ -57,7 +52,9 @@
 -- IMPORTANT: Perhaps this could be its own project! To give it an input and create a graph based on the year of experience in different positions for different technologies
 
 # vX.1.1
+# vX.1.1
 
+- Automate the way to generate the data from your CV
 - Version of the skill page with icons and images
 ?-- Download the icons from the different technologies
 ?--- Generate the logos for the platforms & other technologies(i.e., 
@@ -69,6 +66,7 @@
 ?-- Store the icons in a specific folder (they should use the same size)
 ?-- Implement the icon of each technology based on the step above.
 
+# vY.0.0 
 # vY.0.0 
 
 - Migrate the website to the payload framework. This will help you to manage the content dynimically

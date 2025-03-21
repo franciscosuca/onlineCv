@@ -20,10 +20,21 @@ export default function Footer() {
             className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
             rel="noopener noreferrer"
             target="_blank"
-            href="https://github.com/vercel/next.js"
+            href="https://github.com/franciscosuca"
           >
             <ArrowIcon />
-            <p className="ml-2 h-7">Design based on Vercel</p>
+            <p className="ml-2 h-7">GitHub</p>
+          </a>
+        </li>
+        <li>
+          <a
+            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://stackoverflow.com/users/5208441/imlearningdontjudgeme "
+          >
+            <ArrowIcon />
+            <p className="ml-2 h-7">Stackoverflow</p>
           </a>
         </li>
       </ul>
