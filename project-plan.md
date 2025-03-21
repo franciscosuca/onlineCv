@@ -52,6 +52,7 @@
 -- IMPORTANT: Perhaps this could be its own project! To give it an input and create a graph based on the year of experience in different positions for different technologies
 
 # vX.1.1
+# vX.1.1
 
 - Automate the way to generate the data from your CV
 - Version of the skill page with icons and images
@@ -65,6 +66,7 @@
 ?-- Store the icons in a specific folder (they should use the same size)
 ?-- Implement the icon of each technology based on the step above.
 
+# vY.0.0 
 # vY.0.0 
 
 - Migrate the website to the payload framework. This will help you to manage the content dynimically
