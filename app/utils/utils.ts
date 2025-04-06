@@ -18,7 +18,9 @@ export interface Post {
       location: string;
       company: string;
       jobTitle: string;
-      summary: string
+      summary: string;
+      skills: string;
+      link?: string;
   };
   content: string;
 }

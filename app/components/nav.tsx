@@ -8,17 +8,17 @@ const navItems = {
   '/': {
     name: 'About',
   },
-  '/volunteering': {
-    name: 'Volunteering',
-  },
-  '/projects': {
-    name: 'Projects',
-  },
   '/workExperience': {
     name: 'Work Experience',
   },
   '/skills': {
     name: 'Skills',
+  },
+  '/projects': {
+    name: 'Projects',
+  },
+  '/volunteering': {
+    name: 'Volunteering',
   },
 }
 
