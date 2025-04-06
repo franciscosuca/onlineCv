@@ -103,7 +103,7 @@ const testTechStackExperience = [
 
 export default function Page() {
     return (
-        <section className="grid xl:grid-cols-2 w-full gap-10 max-w-[1600px]">
+        <section className="grid w-full gap-10 max-w-[1600px]">
             <h1  className="mb-8 text-2xl font-semibold tracking-tighter">Skills</h1>
             <p>In the graph below you can find the years of experience that I have collected per programming language on each company that I have work for.</p>
 
