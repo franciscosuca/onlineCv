@@ -37,9 +37,9 @@ export function PostList({ posts }: PostsDetailsProps) {
             : null} */}
             
             {/* TODO: enable embededLinks per project */}
-                {/* {prop.metadata.link ? (
-                    <EmbededLinks experienceLink = { prop.metadata.link } />
-                ): null} */}
+                {prop.metadata.link ? (
+                    <EmbededLinks url = { prop.metadata.link } />
+                ): null}
           </div>
         );
       })}
