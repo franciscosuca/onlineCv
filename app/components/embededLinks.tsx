@@ -10,45 +10,30 @@ declare global {
     }
 }
 
-//TODO: create the key value for the pipeline
-//TODO: extract that value while the pipeline is running and inject the value on the project settings
-const KEY = "<KEY>";
+const KEY = process.env.IFRAME_API_KEY
 
 export function EmbededLinks(props) {
-	const [error, setError] = useState<{ code: number; message: string } | null>(null);
+	const [error, setError] = useState<{ code: number; message: string } | null> (null);
 	const [isLoaded, setIsLoaded] = useState(false);
-	const [html, setHtml] = useState({
-		__html: '<div />'
-    });
+    const [html, setHtml] = useState({ __html: '<div />' }); // This follows React's pattern for safely handling HTML string content that will be rendered directly to the DOM, preventing XSS attacks while allowing dynamic HTML injection when necessary.
     
     useEffect(() => {
 		if (props && props.url) {
 			fetch(
-				`https://cdn.iframe.ly/api/iframely?url=${encodeURIComponent(props.url)}&api_key=${KEY}&iframe=1&omit_script=1`
+				`https://cdn.iframe.ly/api/iframely?url=${encodeURIComponent(props.url)}&key=${KEY}&iframe=1&omit_script=1`
 			)
-				.then((res) => res.json())
-				.then(
-					(res) => {
-						setIsLoaded(true);
-						if (res.html) {
-							setHtml({ __html: res.html });
-						} else if (res.error) {
-							setError({ code: res.error, message: res.message });
-						}
-					},
-					(error) => {
-						setIsLoaded(true);
-						setError(error);
-					}
-				);
+                .then((res) => res.json())
+                .then((res) => {
+                    if (res.html)
+                        setHtml({ __html: res.html })
+                    else if (res.error)
+                        setError({code: res.error, message: res.message});
+                        
+                })
 		} else {
 			setError({ code: 400, message: 'Provide url attribute for the element' });
 		}
 	}, []);
-
-	useEffect(() => {
-		window.iframely && window.iframely.load();
-    });
     
     if (error) {
 		return (
@@ -56,9 +41,8 @@ export function EmbededLinks(props) {
 				Error: {error.code} - {error.message}
 			</div>
 		);
-	} else if (!isLoaded) {
-		return <div>Loading…</div>;
-	} else {
-		return <div dangerouslySetInnerHTML={html} />;
+    }
+    else {
+		return <div dangerouslySetInnerHTML={html} />; //React's replacement for using innerHTML in the browser DOM
 	}
 }
