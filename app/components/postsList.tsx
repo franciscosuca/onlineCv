@@ -14,13 +14,13 @@ export function PostList({ posts }: PostsDetailsProps) {
       {posts.map((prop, index) => {
         return (
           <div key={index} className="flex flex-col space-y-2 mb-4">
-            <p className="text-neutral-600 dark:text-neutral-400 tabular-nums">
+            <h1 className="text-xl font-semibold">
+              {prop.metadata.jobTitle}
+            </h1>
+            <span className="text-neutral-600 dark:text-neutral-400 tabular-nums">
+              {prop.metadata.location}, {prop.metadata.company}<br />
               {prop.metadata.sdate} - {prop.metadata.edate}
-            </p>
-            <p>
-              {prop.metadata.location}, {prop.metadata.company}
-            </p>
-            <p className="italic-text">{prop.metadata.jobTitle}</p>
+            </span>
             <article className="prose">{prop.metadata.summary}</article>
             {/* {prop.content.length > 0 ? (
               <Link
@@ -37,9 +37,9 @@ export function PostList({ posts }: PostsDetailsProps) {
             : null} */}
             
             {/* TODO: enable embededLinks per project */}
-                {/* {prop.metadata.link ? (
-                    <EmbededLinks experienceLink = { prop.metadata.link } />
-                ): null} */}
+                {prop.metadata.link ? (
+                    <EmbededLinks url = { prop.metadata.link } />
+                ): null}
           </div>
         );
       })}

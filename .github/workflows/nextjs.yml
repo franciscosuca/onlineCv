@@ -43,6 +43,8 @@ jobs:
         run: npx semantic-release
   build:
     runs-on: ubuntu-latest
+    env:
+      IFRAME_API_KEY: ${{ secrets.IFRAME_API_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
