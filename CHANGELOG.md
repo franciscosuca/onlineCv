@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/franciscosuca/onlineCv/compare/v1.2.6...v1.3.0) (2025-04-11)
+
+
+### Features
+
+* enable embededlinks on the project with iframely. ([7d7132e](https://github.com/franciscosuca/onlineCv/commit/7d7132e52607f775d26c8089772f97c3b16a1fea))
+
 ## [1.2.6](https://github.com/franciscosuca/onlineCv/compare/v1.2.5...v1.2.6) (2025-03-21)
 
 
