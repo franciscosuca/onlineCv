@@ -12,3 +12,33 @@
 
 * install semantic-release/git in the project. ([4a8324b](https://github.com/franciscosuca/onlineCv/commit/4a8324befc138627e5a305a3c8549c47a537426f))
 * move the changelog plugin to attempt to generate changelog file. ([5f14392](https://github.com/franciscosuca/onlineCv/commit/5f14392b6fa3df44d41c569e93b64a78de2856fa))
+
+## [1.2.2](https://github.com/franciscosuca/onlineCv/releases/tag/v1.2.2)
+
+
+### Features 
+
+* Add semantic release to the project.
+* Setup Semantic for auto-generating a changelog.
+
+## [1.1.2](https://github.com/franciscosuca/onlineCv/releases/tag/v1.1.2)
+
+
+### Features
+
+* Skills page with two graphs.
+* Add Hambuger menu for small screens.
+
+## [1.0](https://github.com/franciscosuca/onlineCv/releases/tag/v1.0)
+
+
+### Features
+
+* About Me page.
+* Contact Footer.
+* Define format for data (dates, position, location, description).
+* Experience pages (Component for pages about my experiences as software engineer).
+* Remove files and folders from original template related to blog.
+* Experience pages (Component for pages about my experiences as software engineer).
+* Remove files and folders from original template related to blog.
+* App hosting & deployment pipeline.

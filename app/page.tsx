@@ -11,9 +11,8 @@ export default function Page() {
         in this software development world.`}
       </p>
       <p className="mb-4">
-        {`With this website I am trying to put most of my experience together. Though as of now,
-        you will be able to see my experience and some of the projects and jobs I have worked on.
-        I am looking forward to adding more projects and experiences to this website, so stay tuned.`}
+        {`With this website I am trying to put most of my experience as a software engineer together.
+        I am looking forward to add more projects and experiences here, so stay tuned :)`}
       </p>
     </section>
   )
