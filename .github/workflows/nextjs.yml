@@ -94,6 +94,13 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Debug - Check env variable
+        run: |
+          if [ -n "$NEXT_PUBLIC_IFRAMELY_API_KEY" ]; then
+            echo "NEXT_PUBLIC_IFRAMELY_API_KEY is set (value hidden)"
+          else
+            echo "NEXT_PUBLIC_IFRAMELY_API_KEY is not set"
+          fi
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Upload artifact
