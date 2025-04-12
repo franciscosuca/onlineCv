@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - dev
   workflow_dispatch:   # Allows you to run this workflow manually from the Actions tab
 
 permissions:
@@ -93,11 +92,9 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      - name: Fetch secret env variable
-        run: echo "Fetching secret environment variable"
+      - name: Debug - Check env variable
         env: #TODO: check why this value is not on the repo?
           NEXT_PUBLIC_IFRAMELY_API_KEY: ${{ secrets.NEXT_PUBLIC_IFRAMELY_API_KEY }}
-      - name: Debug - Check env variable
         run: |
           if [ -n "$NEXT_PUBLIC_IFRAMELY_API_KEY" ]; then
             echo "NEXT_PUBLIC_IFRAMELY_API_KEY is set (value hidden)"
