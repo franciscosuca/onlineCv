@@ -24,7 +24,7 @@ jobs:
       issues: write
       pull-requests: write
       id-token: write
-    steps:
+    steps: #TODO: check why minor increment are not happening
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -43,8 +43,6 @@ jobs:
         run: npx semantic-release
   build:
     runs-on: ubuntu-latest
-    env:
-      NEXT_PUBLIC_IFRAMELY_API_KEY: ${{ secrets.NEXT_PUBLIC_IFRAMELY_API_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -94,6 +92,10 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Fetch secret env variable
+        run: echo "Fetching secret environment variable"
+        env: #TODO: check why this value is not on the repo?
+          NEXT_PUBLIC_IFRAMELY_API_KEY: ${{ secrets.NEXT_PUBLIC_IFRAMELY_API_KEY }}
       - name: Debug - Check env variable
         run: |
           if [ -n "$NEXT_PUBLIC_IFRAMELY_API_KEY" ]; then
