@@ -1,29 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-
-type Metadata = {
-  sdate: string
-  edate: string
-  company: string
-  location: string
-  jobTitle: string
-  summary: string
-  skills: string
-}
-
-export interface Post {
-  metadata: {
-      sdate: string;
-      edate: string;
-      location: string;
-      company: string;
-      jobTitle: string;
-      summary: string;
-      skills: string;
-      link?: string;
-  };
-  content: string;
-}
+import { Metadata } from '../types/Post'
 
 function parseFrontmatter(fileContent: string) {
   let frontmatterRegex = /---\s*([\s\S]*?)\s*---/
