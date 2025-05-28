@@ -18,12 +18,8 @@ async function initializeCosmosDB() {
   if (!databaseInstance || !containerInstance) {
     try {
       databaseInstance = client.database(databaseId);
-      console.log(`Connected to database ${databaseId}`);
-
       containerInstance = databaseInstance.container(containerId);
-      console.log(`Connected to container ${containerId}`);
     } catch (error) {
-      console.error('Error connecting to database:', error);
       throw new Error('Failed to connect to database or container. Make sure they exist.');
     }
   }

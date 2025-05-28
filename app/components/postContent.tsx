@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Post } from "app/utils/utils";
+import { Post } from "app/types/Post";
 
 interface PostContentProps {
   workPost: Post;
