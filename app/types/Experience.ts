@@ -9,4 +9,5 @@ export interface Experience {
     jobTitle: string;
     summary: string;
     skills: string;
+    link?: string; // Optional field for external links
   }
