@@ -1,15 +1,15 @@
-import { PostList } from 'app/components/postsList';
-import { getPosts  } from 'app/utils/utils'
+import { PostList } from 'app/components/postsList'
+import { Experience } from 'app/types/Experience';
+import { queryItems } from 'app/utils/cosmosDB'
 
-let volunteeringPosts = getPosts('volunteering');
-
-export default function Page() {
+export default async function Page() {
+    let volunteering = await queryItems<Experience>('research'); // Assuming 'volunteering' is the partition key for volunteering posts
     return (
         <section>
             <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
                 My Volunteering
             </h1>
-            <PostList posts={volunteeringPosts}/>
+            <PostList posts={volunteering}/>
         </section>
     )
 }
