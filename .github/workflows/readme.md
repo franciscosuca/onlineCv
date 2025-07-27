@@ -46,6 +46,11 @@ az ad sp create --id <APP_ID>
 
 ## Step 3: Create Federated Credentials
 
+Check if the application has already some federated-credentials created:
+```bash
+az ad app federated-credential list --id <APP_ID>
+```
+
 Replace the following values with your actual information:
 
 - `<APP_ID>`: Application ID from Step 1
@@ -55,9 +60,9 @@ Replace the following values with your actual information:
 az ad app federated-credential create \
   --id <APP_ID> \
   --parameters '{
-    "name": "GitHub-Actions-Main",
+    "name": "GitHub-Actions-OnlineCV",
     "issuer": "https://token.actions.githubusercontent.com",
-    "subject": "repo:your-github-username/onlineCv:ref:refs/heads/main",
+    "subject": "repo:franciscosuca/onlineCv:environment:production",
     "description": "GitHub Actions deployment from main branch",
     "audiences": ["api://AzureADTokenExchange"]
   }'
