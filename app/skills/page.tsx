@@ -1,6 +1,7 @@
 // import { getSkills } from "app/utils/utils";
 import {GraphBarVer, GraphBarHor} from "app/components/graphBar";
 
+//TODO-skills: use skills fetched from the experiences on the DB
 // Temporary data for the graph
 const testProgramingExperience = [
     {
@@ -116,7 +117,7 @@ export default function Page() {
 
         </section>
     );
-    // TODO: Enable the code below when the getSkills method is defined
+    // TODO-skills: Enable the code below when the getSkills method is defined
     {/* <ul>
         {getSkills().map((skill) => (
             <li key={skill}>{skill}</li>

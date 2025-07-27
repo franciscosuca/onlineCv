@@ -1,4 +1,5 @@
 
+//TODO: eliminate this and only rely on the Experience type
 export type Metadata = {
   sdate: string
   edate: string
