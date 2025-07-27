@@ -1,44 +1,49 @@
-import Link from "next/link";
 import React from "react";
-import { ArrowIcon } from "app/components/arrowIcon";
-import { Post } from "app/utils/utils";
+import { Experience } from "app/types/Experience";
 import { EmbededLinks } from "./embededLinks";
 
 interface PostsDetailsProps {
-  posts: Post[];
+  posts: Experience[];
+}
+
+// Order the post by start date
+const orderPostsByDate = (posts: Experience[]) => {
+  return posts.sort((a, b) => {
+    // Parse dates in MM.YYYY format, handle "Present" case
+    const parseDate = (dateStr: string): Date => {
+      if (dateStr.toLowerCase() === 'present') {
+        return new Date(); // Current date for "Present"
+      }
+      
+      // Split MM.YYYY format
+      const [month, year] = dateStr.split('.');
+      // Create date with first day of the month (day=1)
+      return new Date(parseInt(year), parseInt(month) - 1, 1);
+    };
+    
+    const dateA = parseDate(a.sdate);
+    const dateB = parseDate(b.sdate);
+    return dateB.getTime() - dateA.getTime(); // Sort in descending order (newest first)
+  });
 }
 
 export function PostList({ posts }: PostsDetailsProps) {
+  const orderedPosts = orderPostsByDate(posts);
   return (
     <div>
-      {posts.map((prop, index) => {
+      {orderedPosts.map((prop, index) => {
         return (
           <div key={index} className="flex flex-col space-y-2 mb-4">
             <h1 className="text-xl font-semibold">
-              {prop.metadata.jobTitle}
+              {prop.title}
             </h1>
             <span className="text-neutral-600 dark:text-neutral-400 tabular-nums">
-              {prop.metadata.location}, {prop.metadata.company}<br />
-              {prop.metadata.sdate} - {prop.metadata.edate}
+              {prop.location}, {prop.company}<br />
+              {prop.sdate} - {prop.edate}
             </span>
-            <article className="prose">{prop.metadata.summary}</article>
-            {/* {prop.content.length > 0 ? (
-              <Link
-                href={`/workExperience/${prop.metadata.company}`}
-                className="flex flex-col space-y-1 mb-4"
-              >
-                <div className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-500">
-                  <ArrowIcon />
-                  <p className="ml-2 h-7 underline">
-                    {`More about my experience in ${prop.metadata.company}`}
-                  </p>
-                </div>
-                    </Link>)
-            : null} */}
-            
-            {/* TODO: enable embededLinks per project */}
-                {prop.metadata.link ? (
-                    <EmbededLinks url = { prop.metadata.link } />
+            <article className="prose">{prop.summary}</article>
+                {prop.link ? (
+                    <EmbededLinks url = { prop.link } />
                 ): null}
           </div>
         );

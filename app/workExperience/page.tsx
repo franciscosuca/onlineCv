@@ -1,15 +1,15 @@
 import { PostList } from "app/components/postsList"
-import { getPosts } from "app/utils/utils";
+import { queryItems } from "app/utils/cosmosDB"
+import { Experience } from "app/types/Experience"
 
-let workPosts = getPosts("workExperience");
-
-export default function Page() {
-    return (
-        <section>
-            <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-                Work Experience
-            </h1>
-            <PostList posts={ workPosts } />
-        </section>
-    );
+export default async function Page() {
+  let workExperience = await queryItems<Experience>("workexperience");
+  return (
+    <section>
+      <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
+        Work Experience
+      </h1>
+      <PostList posts={workExperience} />
+    </section>
+  );
 }
