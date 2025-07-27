@@ -68,6 +68,20 @@ az ad app federated-credential create \
   }'
 ```
 
+## Verifying Federated Credentials in Azure Portal
+
+To verify your federated credentials were created successfully:
+
+1. **Navigate to Azure Portal** - Go to [portal.azure.com](https://portal.azure.com)
+2. **Access Microsoft Entra ID** - Navigate to Microsoft Entra ID (formerly Azure Active Directory)
+3. **Find App Registrations** - Go to **App registrations**
+4. **Locate Your App** - Find your app "GitHub-Actions-OnlineCV" (App ID: `<APP_ID>)
+5. **View Credentials** - Click on **Certificates & secrets**
+6. **Check Federated Credentials** - Click on the **Federated credentials** tab
+
+You should see your "GitHub-Actions-OnlineCV" federated credential listed here.
+
+
 ## Step 4: Assign Azure Permissions
 
 ### Option A: Resource Group Level Permissions (Recommended)
