@@ -15,12 +15,12 @@
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "50-publish-the-project-on-az-webapp-dynamic-app" ]
   workflow_dispatch:
 
 env:
   AZURE_WEBAPP_NAME: your-actual-webapp-name    # ⚠️ UPDATE THIS
-  AZURE_WEBAPP_PACKAGE_PATH: './dist'
+  AZURE_WEBAPP_PACKAGE_PATH: '.next'
   NODE_VERSION: '20.x'
 
 permissions:
@@ -58,7 +58,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: node-app
-        path: ./dist
+        path: .next
 
   deploy:
     permissions:
@@ -69,7 +69,7 @@ jobs:
     environment:
       name: 'production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    if: github.event_name == 'push'
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
 
     steps:
     - name: Download artifact from build job
