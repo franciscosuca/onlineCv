@@ -3,7 +3,10 @@ import { queryItems } from "app/utils/cosmosDB"
 import { Experience } from "app/types/Experience"
 
 export default async function Page() {
-  let workExperience = await queryItems<Experience>("research"); //TODO: change the partitionKey to the one used for projects in CosmosDB
+  //* TODO: check why the blob is not saving the type of the experience correctly on the DB
+  //TODO: fix the order of the posts in the page
+  //? Then, prepare pipeline to publish application in Azure
+  let workExperience = await queryItems<Experience>("workexperience"); //TODO: change the partitionKey to the one used for projects in CosmosDB
   return (
     <section>
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">

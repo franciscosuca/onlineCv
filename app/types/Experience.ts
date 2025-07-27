@@ -6,7 +6,7 @@ export interface Experience {
     edate: string;
     company: string;
     location: string;
-    jobTitle: string;
+    title: string;  // Changed from jobTitle to title to match your data
     summary: string;
     skills: string;
     link?: string; // Optional field for external links

@@ -3,7 +3,7 @@ import { Experience } from 'app/types/Experience';
 import { queryItems } from 'app/utils/cosmosDB'
 
 export default async function Page() {
-    let volunteering = await queryItems<Experience>('research'); // Assuming 'volunteering' is the partition key for volunteering posts
+    let volunteering = await queryItems<Experience>('volunteering'); // Assuming 'volunteering' is the partition key for volunteering posts
     return (
         <section>
             <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
