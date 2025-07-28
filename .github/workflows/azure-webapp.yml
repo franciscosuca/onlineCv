@@ -68,6 +68,11 @@ jobs:
         if [ -d "dist" ]; then cp -r dist deployment/; fi
         cp -r public deployment/
         cp -r app deployment/
+        # Create a startup script that installs dependencies and starts the app
+        echo '#!/bin/bash' > deployment/startup.sh
+        echo 'npm install --production' >> deployment/startup.sh
+        echo 'npm start' >> deployment/startup.sh
+        chmod +x deployment/startup.sh
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v4
