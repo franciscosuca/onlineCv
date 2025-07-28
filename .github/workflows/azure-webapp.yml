@@ -62,11 +62,10 @@ jobs:
         cp package.json deployment/
         cp next.config.js deployment/
         cp pnpm-lock.yaml deployment/
-        cp -r dist deployment/
+        cp server.js deployment/
+        cp -r .next deployment/
         cp -r public deployment/
         cp -r app deployment/
-        # Copy any other necessary files
-        if [ -f "startup.sh" ]; then cp startup.sh deployment/; fi
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v4
