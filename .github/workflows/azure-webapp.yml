@@ -63,7 +63,9 @@ jobs:
         cp next.config.js deployment/
         cp pnpm-lock.yaml deployment/
         cp server.js deployment/
-        cp -r .next deployment/
+        # Copy build output (check for both .next and dist directories)
+        if [ -d ".next" ]; then cp -r .next deployment/; fi
+        if [ -d "dist" ]; then cp -r dist deployment/; fi
         cp -r public deployment/
         cp -r app deployment/
 
