@@ -1,14 +1,24 @@
+
 const { createServer } = require('http')
 const { parse } = require('url')
-const next = require('next')
+let next
+try {
+  next = require('next')
+} catch (err) {
+  console.error("ERROR: 'next' module not found. Please ensure dependencies are installed with 'npm install' or 'pnpm install'.")
+  process.exit(1)
+}
+
 
 const dev = process.env.NODE_ENV !== 'production'
-const hostname = 'localhost'
-const port = process.env.PORT || 3000
+const hostname = process.env.HOSTNAME || '0.0.0.0'
+const port = process.env.PORT || 8080
+
 
 // when using middleware `hostname` and `port` must be provided below
 const app = next({ dev, hostname, port })
 const handle = app.getRequestHandler()
+
 
 app.prepare().then(() => {
   createServer(async (req, res) => {
@@ -16,8 +26,6 @@ app.prepare().then(() => {
       // Be sure to pass `true` as the second argument to `url.parse`.
       // This tells it to parse the query portion of the URL.
       const parsedUrl = parse(req.url, true)
-      const { pathname, query } = parsedUrl
-
       await handle(req, res, parsedUrl)
     } catch (err) {
       console.error('Error occurred handling', req.url, err)
@@ -29,7 +37,7 @@ app.prepare().then(() => {
       console.error(err)
       process.exit(1)
     })
-    .listen(port, () => {
+    .listen(port, hostname, () => {
       console.log(`> Ready on http://${hostname}:${port}`)
     })
 })
