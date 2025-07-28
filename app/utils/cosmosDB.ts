@@ -1,13 +1,16 @@
 import { CosmosClient, Database, Container } from '@azure/cosmos';
 
-if (!process.env.COSMOS_ENDPOINT || !process.env.COSMOS_KEY) {
-  throw new Error('Missing required environment variables for Cosmos DB');
-}
+// Check if we're in build mode or runtime mode
+const isBuildTime = process.env.NODE_ENV === undefined || process.env.NEXT_PHASE === 'phase-production-build';
 
-const client = new CosmosClient({
-  endpoint: process.env.COSMOS_ENDPOINT,
-  key: process.env.COSMOS_KEY,
-});
+// Initialize client only if not in build time and env vars are available
+let client: CosmosClient | null = null;
+if (!isBuildTime && process.env.COSMOS_ENDPOINT && process.env.COSMOS_KEY) {
+  client = new CosmosClient({
+    endpoint: process.env.COSMOS_ENDPOINT,
+    key: process.env.COSMOS_KEY,
+  });
+}
 
 const databaseId = process.env.COSMOS_DATABASE || 'onlineCv';
 const containerId = process.env.COSMOS_CONTAINER || 'experience';
@@ -15,6 +18,10 @@ let databaseInstance: Database | null = null;
 let containerInstance: Container | null = null;
 
 async function initializeCosmosDB() {
+  if (!client) {
+    throw new Error('Cosmos DB client not initialized. Missing environment variables.');
+  }
+  
   if (!databaseInstance || !containerInstance) {
     try {
       databaseInstance = client.database(databaseId);
@@ -27,6 +34,10 @@ async function initializeCosmosDB() {
 }
 
 export async function getItem<T>(id: string, partitionKey: string): Promise<T | null> {
+  if (!client) {
+    return null; // Return null during build time
+  }
+  
   const { container } = await initializeCosmosDB();
   try {
     const { resource } = await container.item(id, partitionKey).read();
@@ -40,6 +51,10 @@ export async function getItem<T>(id: string, partitionKey: string): Promise<T | 
 }
 
 export async function queryItems<T>(partitionKey: string): Promise<T[]> {
+  if (!client) {
+    return []; // Return empty array during build time
+  }
+  
   const { container } = await initializeCosmosDB();
   const { resources } = await container.items
     .query("SELECT * FROM c", {

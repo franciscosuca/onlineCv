@@ -13,10 +13,11 @@
 # For more information on the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # For more samples to get started with GitHub Action workflows to deploy to Azure: https://github.com/Azure/actions-workflow-samples
 
-on:
-  push:
-    branches: [ "main", "50-publish-the-project-on-az-webapp-dynamic-app" ]
-  workflow_dispatch:
+# Workflow is deactivated - uncomment the lines below to reactivate
+# on:
+#   push:
+#     branches: [ "main", "50-publish-the-project-on-az-webapp-dynamic-app" ]
+#   workflow_dispatch:
 
 env:
   AZURE_WEBAPP_NAME: ${{ vars.AZURE_WEBAPP_NAME }}
