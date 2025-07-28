@@ -1,5 +1,5 @@
 #!/bin/bash
 # Install dependencies
-npm install --production
+pnpm install --production
 # Startup script for Azure Web Apps
-npm start
+pnpm start

@@ -9,7 +9,7 @@ try {
   process.exit(1)
 }
 
-
+//TODO: remmember to remove the env.var on az-web-app
 const dev = process.env.NODE_ENV !== 'production'
 const hostname = process.env.HOSTNAME || '0.0.0.0'
 const port = process.env.PORT || 8080
