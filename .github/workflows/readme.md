@@ -129,6 +129,20 @@ In your GitHub repository:
 | `AZURE_TENANT_ID` | Tenant ID from Step 1 | Azure tenant identifier |
 | `AZURE_SUBSCRIPTION_ID` | Subscription ID from Step 1 | Azure subscription identifier |
 
-## Step 6: Update Workflow Configuration
+## Step 6: Create app-service-plan and  web-application in Azure (if not created yet)
 
-Update the `AZURE_WEBAPP_NAME` environment variable in your GitHub Actions workflow file with your actual Azure Web App name.
+````bash
+az appservice plan create \
+  --name <Plan_name> \
+  --resource-group <yourResourceGroup> \
+  --sku B1 \
+  --is-linux
+````
+
+````bash
+az webapp create \
+  --name <APP_NAME> \
+  --resource-group <yourResourceGroup> \
+  --plan <your_Plan> \
+  --runtime "NODE:20-lts"
+````
