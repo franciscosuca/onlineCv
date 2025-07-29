@@ -1,0 +1,26 @@
+node_modules
+npm-debug.log
+dist
+.next
+.git
+.gitignore
+Dockerfile
+docker-compose.yml
+*.md
+*.log
+test/
+coverage/
+.env
+.vscode
+.idea
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore build artifacts
+build
+
+# Ignore package manager files
+pnpm-lock.yaml
+yarn.lock

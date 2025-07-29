@@ -13,18 +13,16 @@
 # For more information on the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # For more samples to get started with GitHub Action workflows to deploy to Azure: https://github.com/Azure/actions-workflow-samples
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    types: [closed]
-    branches: [ "main" ]
-  workflow_dispatch:
+# Workflow is deactivated - uncomment the lines below to reactivate
+# on:
+#   push:
+#     branches: [ "main", "50-publish-the-project-on-az-webapp-dynamic-app" ]
+#   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: your-actual-webapp-name    # ⚠️ UPDATE THIS
-  AZURE_WEBAPP_PACKAGE_PATH: './dist'
-  NODE_VERSION: '20.x'
+  AZURE_WEBAPP_NAME: ${{ vars.AZURE_WEBAPP_NAME }}
+  AZURE_WEBAPP_PACKAGE_PATH: '.'
+  NODE_VERSION: ${{ vars.NODE_VERSION }}
 
 permissions:
   id-token: write
@@ -36,14 +34,16 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 8
+
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
         node-version: ${{ env.NODE_VERSION }}
         cache: 'pnpm'
-
-    - name: Install pnpm
-      run: npm install -g pnpm
 
     - name: Install dependencies and build
       run: |
@@ -55,11 +55,31 @@ jobs:
         COSMOS_DATABASE: ${{ secrets.COSMOS_DATABASE }}
         COSMOS_CONTAINER: ${{ secrets.COSMOS_CONTAINER }}
 
+    - name: Create deployment package
+      run: |
+        # Create a deployment directory
+        mkdir -p deployment
+        # Copy essential files for Azure Web App
+        cp package.json deployment/
+        cp next.config.js deployment/
+        cp pnpm-lock.yaml deployment/
+        cp server.js deployment/
+        # Copy build output (check for both .next and dist directories)
+        if [ -d ".next" ]; then cp -r .next deployment/; fi
+        if [ -d "dist" ]; then cp -r dist deployment/; fi
+        cp -r public deployment/
+        cp -r app deployment/
+        # Create a startup script that installs dependencies and starts the app
+        echo '#!/bin/bash' > deployment/startup.sh
+        echo 'npm install --production' >> deployment/startup.sh
+        echo 'npm start' >> deployment/startup.sh
+        chmod +x deployment/startup.sh
+
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v4
       with:
         name: node-app
-        path: ./dist
+        path: deployment
 
   deploy:
     permissions:
@@ -70,7 +90,7 @@ jobs:
     environment:
       name: 'production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
 
     steps:
     - name: Download artifact from build job

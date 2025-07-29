@@ -46,6 +46,11 @@ az ad sp create --id <APP_ID>
 
 ## Step 3: Create Federated Credentials
 
+Check if the application has already some federated-credentials created:
+```bash
+az ad app federated-credential list --id <APP_ID>
+```
+
 Replace the following values with your actual information:
 
 - `<APP_ID>`: Application ID from Step 1
@@ -55,13 +60,27 @@ Replace the following values with your actual information:
 az ad app federated-credential create \
   --id <APP_ID> \
   --parameters '{
-    "name": "GitHub-Actions-Main",
+    "name": "GitHub-Actions-OnlineCV",
     "issuer": "https://token.actions.githubusercontent.com",
-    "subject": "repo:your-github-username/onlineCv:ref:refs/heads/main",
+    "subject": "repo:franciscosuca/onlineCv:environment:production",
     "description": "GitHub Actions deployment from main branch",
     "audiences": ["api://AzureADTokenExchange"]
   }'
 ```
+
+## Verifying Federated Credentials in Azure Portal
+
+To verify your federated credentials were created successfully:
+
+1. **Navigate to Azure Portal** - Go to [portal.azure.com](https://portal.azure.com)
+2. **Access Microsoft Entra ID** - Navigate to Microsoft Entra ID (formerly Azure Active Directory)
+3. **Find App Registrations** - Go to **App registrations**
+4. **Locate Your App** - Find your app "GitHub-Actions-OnlineCV" (App ID: `<APP_ID>)
+5. **View Credentials** - Click on **Certificates & secrets**
+6. **Check Federated Credentials** - Click on the **Federated credentials** tab
+
+You should see your "GitHub-Actions-OnlineCV" federated credential listed here.
+
 
 ## Step 4: Assign Azure Permissions
 
@@ -110,6 +129,20 @@ In your GitHub repository:
 | `AZURE_TENANT_ID` | Tenant ID from Step 1 | Azure tenant identifier |
 | `AZURE_SUBSCRIPTION_ID` | Subscription ID from Step 1 | Azure subscription identifier |
 
-## Step 6: Update Workflow Configuration
+## Step 6: Create app-service-plan and  web-application in Azure (if not created yet)
 
-Update the `AZURE_WEBAPP_NAME` environment variable in your GitHub Actions workflow file with your actual Azure Web App name.
+````bash
+az appservice plan create \
+  --name <Plan_name> \
+  --resource-group <yourResourceGroup> \
+  --sku B1 \
+  --is-linux
+````
+
+````bash
+az webapp create \
+  --name <APP_NAME> \
+  --resource-group <yourResourceGroup> \
+  --plan <your_Plan> \
+  --runtime "NODE:20-lts"
+````
