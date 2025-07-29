@@ -2,13 +2,13 @@ name: Build and Deploy to Azure Container App
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "50-publish-the-project-on-az-webapp-dynamic-app"]
   workflow_dispatch:
 
 env:
   REGISTRY: ${{ secrets.AZURE_CONTAINER_REGISTRY }}
   IMAGE_NAME: onlinecv-app
-  CONTAINER_APP_NAME: ${{ secrets.AZURE_CONTAINER_APP_NAME }}
+  CONTAINER_APP_NAME: ${{ vars.AZURE_CONTAINER_APP_NAME }}
   RESOURCE_GROUP: ${{ secrets.AZURE_RESOURCE_GROUP }}
 
 jobs:
