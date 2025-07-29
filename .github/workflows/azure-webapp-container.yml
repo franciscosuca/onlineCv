@@ -1,9 +1,8 @@
 name: Build and Deploy to Azure Container App
 
 on:
-    //TODO: activate when ready
-#   push:
-#     branches: [ "main" ]
+  push:
+    branches: [ "main" ]
   workflow_dispatch:
 
 env:
