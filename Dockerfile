@@ -22,14 +22,18 @@ WORKDIR /app
 COPY --from=builder /app/package.json ./
 COPY --from=builder /app/package-lock.json ./
 COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/public ./public
 COPY --from=builder /app/app ./app
+COPY --from=builder /app/public ./public
 COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/server.js ./
 
-RUN npm ci --only=production --legacy-peer-deps
+# Install only production dependencies
+RUN npm ci --only=production --legacy-peer-deps && npm cache clean --force
 
-# Expose port (change if your app uses a different port)
+# Set NODE_ENV to production
+ENV NODE_ENV=production
+
+# Expose port
 EXPOSE 8080
 
 # Start the app

@@ -1,5 +1,5 @@
 import React from "react";
-import { Experience } from "app/types/Experience";
+import { Experience } from "../types/Experience";
 import { EmbededLinks } from "./embededLinks";
 
 interface PostsDetailsProps {

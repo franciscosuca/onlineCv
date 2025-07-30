@@ -1,6 +1,6 @@
-import { PostList } from "app/components/postsList"
-import { queryItems } from "app/utils/cosmosDB"
-import { Experience } from "app/types/Experience"
+import { PostList } from "../components/postsList"
+import { queryItems } from "../utils/cosmosDB"
+import { Experience } from "../types/Experience"
 
 export default async function Page() {
   let workExperience = await queryItems<Experience>("workexperience");

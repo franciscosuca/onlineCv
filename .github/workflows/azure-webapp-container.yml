@@ -5,6 +5,10 @@ on:
     branches: [ "main", "50-publish-the-project-on-az-webapp-dynamic-app"]
   workflow_dispatch:
 
+permissions:
+  id-token: write
+  contents: read
+
 env:
   REGISTRY: ${{ secrets.AZURE_CONTAINER_REGISTRY }}
   IMAGE_NAME: onlinecv-app
