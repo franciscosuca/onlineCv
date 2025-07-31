@@ -27,8 +27,6 @@ COPY --from=builder /app/package-lock.json ./
 COPY --from=builder /app/dist/standalone ./
 COPY --from=builder /app/dist/static ./dist/static
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/next.config.js ./
-COPY --from=builder /app/server.js ./
 
 # Set NODE_ENV to production
 ENV NODE_ENV=production
@@ -39,5 +37,5 @@ ENV PORT=8080
 # Expose port
 EXPOSE 8080
 
-# Start the app using the standalone server
+# Start the app using the Next.js standalone server
 CMD ["node", "server.js"]

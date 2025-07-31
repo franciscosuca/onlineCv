@@ -2,6 +2,13 @@
 
 This is my starter portfolio that I worked on based on the template from [Vercel](https://portfolio-blog-starter.vercel.app).
 
+## Progress
+
+- 🕐Adapt pipeline
+- 🚧Test container in the cloud
+- ✅Solve issue to fetch experiences from container
+- ✅Solve styles missed when running container
+
 ## Versioning
 
 I follow the format from [semantic-release](https://semantic-release.gitbook.io/semantic-release).
@@ -18,21 +25,69 @@ https://portfolio-blog-starter.vercel.app
 
 Clone this repository and then run:
 ```bash
-pnpm install
+npm install --legacy-peer-deps
 ```
 
 Afterwards
 ```bash
-pnpm dev
+npm run dev
 ```
 
 ## Test build before triggering Github actions
 
-````
-pnpm build
-````
+```bash
+npm run build
+```
 
-**Not using pnpm?** Check [pnpm's website](https://pnpm.io/installation) to know how to install it.
+## Run with Docker
+
+To run the application using Docker:
+
+### Build the Docker image
+
+```bash
+docker build -t online-cv .
+```
+
+### Run the Docker container
+
+```bash
+docker run -p 3000:8080 
+  -e COSMOS_ENDPOINT=https://your-cosmos-account.documents.azure.com:443/ 
+  -e COSMOS_KEY=your_cosmos_key_here 
+  -e COSMOS_DATABASE=onlineCv 
+  -e COSMOS_CONTAINER=experience 
+  -e NODE_ENV=production 
+  online-cv
+```
+
+**Important**: Do not use quotes around the environment variable values when using `-e` flag.
+
+**Environment Variables:**
+
+- `COSMOS_ENDPOINT`: Your Azure Cosmos DB endpoint URL (without quotes)
+- `COSMOS_KEY`: Your Azure Cosmos DB access key (without quotes)
+- `COSMOS_DATABASE`: Database name (defaults to "onlineCv")
+- `COSMOS_CONTAINER`: Container name (defaults to "experience")
+- `NODE_ENV`: Set to "production" for production builds
+
+**Alternative with .env file:**
+
+Create a `.env` file with these variables (without quotes):
+```env
+COSMOS_ENDPOINT=https://your-cosmos-account.documents.azure.com:443/
+COSMOS_KEY=your_cosmos_key_here
+COSMOS_DATABASE=onlineCv
+COSMOS_CONTAINER=experience
+NODE_ENV=production
+```
+
+Then run:
+```bash
+docker run -p 3000:8080 --env-file .env online-cv
+```
+
+The application will be available at `http://localhost:3000`
 
 ## How to generate data for the projects/volunteering/workExperience page(s)
 
