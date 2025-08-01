@@ -1,4 +1,4 @@
-import { ArrowIcon } from 'app/components/arrowIcon';
+import { ArrowIcon } from './arrowIcon';
 
 export default function Footer() {
   return (

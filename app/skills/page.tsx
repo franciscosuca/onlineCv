@@ -1,5 +1,5 @@
-// import { getSkills } from "app/utils/utils";
-import {GraphBarVer, GraphBarHor} from "app/components/graphBar";
+// import { getSkills } from "../utils/utils";
+import {GraphBarVer, GraphBarHor} from "../components/graphBar";
 
 //TODO-skills: use skills fetched from the experiences on the DB
 // Temporary data for the graph

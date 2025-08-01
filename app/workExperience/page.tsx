@@ -1,15 +1,26 @@
-import { PostList } from "app/components/postsList"
-import { queryItems } from "app/utils/cosmosDB"
-import { Experience } from "app/types/Experience"
+import { PostList } from "../components/postsList"
+import { queryItems } from "../utils/cosmosDB"
+import { Experience } from "../types/Experience"
 
-export default async function Page() {
-  let workExperience = await queryItems<Experience>("workexperience");
-  return (
-    <section>
-      <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        Work Experience
-      </h1>
-      <PostList posts={workExperience} />
-    </section>
-  );
+// Force this page to be dynamic and not statically generated
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
+export default async function WorkExperience() {
+  try {
+    const workExperience = await queryItems<Experience>("workexperience");
+    return (
+      <div>
+        <h1>Work Experience</h1>
+        <PostList posts={workExperience} />
+      </div>
+    );
+  } catch (error) {
+    return (
+      <div>
+        <h1>Work Experience</h1>
+        <p>Error loading work experience: {error.message}</p>
+      </div>
+    );
+  }
 }

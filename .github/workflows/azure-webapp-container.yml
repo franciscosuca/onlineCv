@@ -2,13 +2,17 @@ name: Build and Deploy to Azure Container App
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main"]
   workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
 
 env:
   REGISTRY: ${{ secrets.AZURE_CONTAINER_REGISTRY }}
   IMAGE_NAME: onlinecv-app
-  CONTAINER_APP_NAME: ${{ secrets.AZURE_CONTAINER_APP_NAME }}
+  CONTAINER_APP_NAME: ${{ vars.AZURE_CONTAINER_APP_NAME }}
   RESOURCE_GROUP: ${{ secrets.AZURE_RESOURCE_GROUP }}
 
 jobs:
@@ -24,10 +28,17 @@ jobs:
           username: ${{ secrets.AZURE_CONTAINER_REGISTRY_USERNAME }}
           password: ${{ secrets.AZURE_CONTAINER_REGISTRY_PASSWORD }}
 
-      - name: Build and push Docker image
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push multi-platform Docker image
         run: |
-          docker build -t $REGISTRY/$IMAGE_NAME:${{ github.sha }} .
-          docker push $REGISTRY/$IMAGE_NAME:${{ github.sha }}
+          docker buildx build \
+            --platform linux/amd64,linux/arm64 \
+            --tag $REGISTRY/$IMAGE_NAME:${{ github.sha }} \
+            --tag $REGISTRY/$IMAGE_NAME:latest \
+            --push \
+            .
 
   deploy:
     runs-on: ubuntu-latest
@@ -46,4 +57,4 @@ jobs:
             --name $CONTAINER_APP_NAME \
             --resource-group $RESOURCE_GROUP \
             --image $REGISTRY/$IMAGE_NAME:${{ github.sha }} \
-            --set-env-vars COSMOS_ENDPOINT=${{ secrets.COSMOS_ENDPOINT }} COSMOS_KEY=${{ secrets.COSMOS_KEY }} COSMOS_DATABASE=${{ secrets.COSMOS_DATABASE }} COSMOS_CONTAINER=${{ secrets.COSMOS_CONTAINER }}
+            --set-env-vars COSMOS_CONNECTION_STRING=${{ secrets.COSMOS_CONNECTION_STRING }} COSMOS_DATABASE=${{ secrets.COSMOS_DATABASE }} COSMOS_CONTAINER=${{ secrets.COSMOS_CONTAINER }}

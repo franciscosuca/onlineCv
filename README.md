@@ -1,61 +1,123 @@
 # Portfolio Starter
 
-This is my starter portfolio that I worked on based on the template from [Vercel](https://portfolio-blog-starter.vercel.app).
+This is my start### Build the Docker image
 
-## Versioning
+```bash
+docker build -t online-cv .
+```
 
-I follow the format from [semantic-release](https://semantic-release.gitbook.io/semantic-release).
+### Build Multi-platform Docker image (AMD64 + ARM64)
 
-## Demo
+For compatibility with both Intel/AMD and Apple Silicon (M1/M2) processors:
 
-Demonstration of the original website cloned from Vercel, with the blogs pages.
+```bash
+# Create a new builder instance (one-time setup)
+docker buildx create --name multiplatform --use
 
-https://portfolio-blog-starter.vercel.app
+# Build for multiple platforms
+docker buildx build --platform linux/amd64,linux/arm64 -t online-cv:latest .
+```rtfolio that I worked on based on the template from [Vercel](https://portfolio-blog-starter.vercel.app).
 
-**NOTE**: This URL will be updated with a website that relies on the code used by this project.
+## Progress (Temporal)
+
+- 🕐Adapt pipeline
+- 🚧Test container in the cloud
+- ✅Solve issue to fetch experiences from container
+- ✅Solve styles missed when running container
+
+## Documentation
+
+- [Content Management](./Docs/CONTENT_MANAGEMENT.md)
 
 ## How to Use
 
 Clone this repository and then run:
 ```bash
-pnpm install
+npm install --legacy-peer-deps
 ```
 
 Afterwards
 ```bash
-pnpm dev
+npm run dev
 ```
 
-## Test build before triggering Github actions
+### Test build before triggering Github actions
 
-````
-pnpm build
-````
-
-**Not using pnpm?** Check [pnpm's website](https://pnpm.io/installation) to know how to install it.
-
-## How to generate data for the projects/volunteering/workExperience page(s)
-
-### Create a file 
-
-On the path '/app/<folder>/posts', create a file with any name but in format '.mdx'
-
-### Populate the file
-
-On the file created on the previous step, fill the file with the following format:
-
-``` 
----
-sdate: '<start_month.year>'
-edate: '<end_month.year>'
-company: '<company_name>'
-location: '<location>'
-jobTitle: '<jot_title>'
----
-
-* <Description about the position.>
+```bash
+npm run build
 ```
 
+## Run with Docker
+
+To run the application using Docker:
+
+### Build the Docker image
+
+```bash
+docker build -t onlinecv .
+```
+
+### Run the Docker container
+
+```bash
+docker run -p 3000:8080 
+  -e COSMOS_ENDPOINT=https://your-cosmos-account.documents.azure.com:443/ 
+  -e COSMOS_KEY=your_cosmos_key_here 
+  -e COSMOS_DATABASE=your_db_here 
+  -e COSMOS_CONTAINER=your_container_here 
+  -e NODE_ENV=production 
+  onlinecv
+```
+
+**Important**: Do not use quotes around the environment variable values when using `-e` flag.
+
+**Environment Variables:**
+
+- `COSMOS_ENDPOINT`: Your Azure Cosmos DB endpoint URL (without quotes)
+- `COSMOS_KEY`: Your Azure Cosmos DB access key (without quotes)
+- `COSMOS_DATABASE`: Database name (defaults to "onlineCv")
+- `COSMOS_CONTAINER`: Container name (defaults to "experience")
+- `NODE_ENV`: Set to "production" for production builds
+
+**Alternative with .env file:**
+
+Create a `.env` file with these variables (without quotes):
+```env
+COSMOS_ENDPOINT=https://your-cosmos-account.documents.azure.com:443/
+COSMOS_KEY=your_cosmos_key_here
+COSMOS_DATABASE=onlineCv
+COSMOS_CONTAINER=experience
+NODE_ENV=production
+```
+
+Then run:
+```bash
+docker run -p 3000:8080 --env-file .env onlinecv
+```
+
+The application will be available at `http://localhost:3000`
+
+## Deploy to Azure Container Registry
+
+To deploy your Docker image to Azure Container Registry for use with Azure services:
+
+### Login to Azure Container Registry
+
+```bash
+az acr login --name <your-registry-name>
+```
+
+### Tag your image for Azure Container Registry
+
+```bash
+docker tag <local-container-name> <your-registry-name>.azurecr.io<remote-container-name>:latest
+```
+
+### Push the image to Azure Container Registry
+
+```bash
+docker push <your-registry-name>.azurecr.io<remote-container-name>:latest
+```
 
 ## Contact
 
