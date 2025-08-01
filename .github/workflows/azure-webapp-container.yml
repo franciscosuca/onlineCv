@@ -28,10 +28,17 @@ jobs:
           username: ${{ secrets.AZURE_CONTAINER_REGISTRY_USERNAME }}
           password: ${{ secrets.AZURE_CONTAINER_REGISTRY_PASSWORD }}
 
-      - name: Build and push Docker image
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push multi-platform Docker image
         run: |
-          docker build -t $REGISTRY/$IMAGE_NAME:${{ github.sha }} .
-          docker push $REGISTRY/$IMAGE_NAME:${{ github.sha }}
+          docker buildx build \
+            --platform linux/amd64,linux/arm64 \
+            --tag $REGISTRY/$IMAGE_NAME:${{ github.sha }} \
+            --tag $REGISTRY/$IMAGE_NAME:latest \
+            --push \
+            .
 
   deploy:
     runs-on: ubuntu-latest

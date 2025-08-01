@@ -1,25 +1,33 @@
 # Portfolio Starter
 
-This is my starter portfolio that I worked on based on the template from [Vercel](https://portfolio-blog-starter.vercel.app).
+This is my start### Build the Docker image
 
-## Progress
+```bash
+docker build -t online-cv .
+```
+
+### Build Multi-platform Docker image (AMD64 + ARM64)
+
+For compatibility with both Intel/AMD and Apple Silicon (M1/M2) processors:
+
+```bash
+# Create a new builder instance (one-time setup)
+docker buildx create --name multiplatform --use
+
+# Build for multiple platforms
+docker buildx build --platform linux/amd64,linux/arm64 -t online-cv:latest .
+```rtfolio that I worked on based on the template from [Vercel](https://portfolio-blog-starter.vercel.app).
+
+## Progress (Temporal)
 
 - 🕐Adapt pipeline
 - 🚧Test container in the cloud
 - ✅Solve issue to fetch experiences from container
 - ✅Solve styles missed when running container
 
-## Versioning
+## Documentation
 
-I follow the format from [semantic-release](https://semantic-release.gitbook.io/semantic-release).
-
-## Demo
-
-Demonstration of the original website cloned from Vercel, with the blogs pages.
-
-https://portfolio-blog-starter.vercel.app
-
-**NOTE**: This URL will be updated with a website that relies on the code used by this project.
+- [Content Management](./Docs/CONTENT_MANAGEMENT.md)
 
 ## How to Use
 
@@ -33,7 +41,7 @@ Afterwards
 npm run dev
 ```
 
-## Test build before triggering Github actions
+### Test build before triggering Github actions
 
 ```bash
 npm run build
@@ -46,7 +54,7 @@ To run the application using Docker:
 ### Build the Docker image
 
 ```bash
-docker build -t online-cv .
+docker build -t onlinecv .
 ```
 
 ### Run the Docker container
@@ -55,10 +63,10 @@ docker build -t online-cv .
 docker run -p 3000:8080 
   -e COSMOS_ENDPOINT=https://your-cosmos-account.documents.azure.com:443/ 
   -e COSMOS_KEY=your_cosmos_key_here 
-  -e COSMOS_DATABASE=onlineCv 
-  -e COSMOS_CONTAINER=experience 
+  -e COSMOS_DATABASE=your_db_here 
+  -e COSMOS_CONTAINER=your_container_here 
   -e NODE_ENV=production 
-  online-cv
+  onlinecv
 ```
 
 **Important**: Do not use quotes around the environment variable values when using `-e` flag.
@@ -84,33 +92,32 @@ NODE_ENV=production
 
 Then run:
 ```bash
-docker run -p 3000:8080 --env-file .env online-cv
+docker run -p 3000:8080 --env-file .env onlinecv
 ```
 
 The application will be available at `http://localhost:3000`
 
-## How to generate data for the projects/volunteering/workExperience page(s)
+## Deploy to Azure Container Registry
 
-### Create a file 
+To deploy your Docker image to Azure Container Registry for use with Azure services:
 
-On the path '/app/<folder>/posts', create a file with any name but in format '.mdx'
+### Login to Azure Container Registry
 
-### Populate the file
-
-On the file created on the previous step, fill the file with the following format:
-
-``` 
----
-sdate: '<start_month.year>'
-edate: '<end_month.year>'
-company: '<company_name>'
-location: '<location>'
-jobTitle: '<jot_title>'
----
-
-* <Description about the position.>
+```bash
+az acr login --name <your-registry-name>
 ```
 
+### Tag your image for Azure Container Registry
+
+```bash
+docker tag <local-container-name> <your-registry-name>.azurecr.io<remote-container-name>:latest
+```
+
+### Push the image to Azure Container Registry
+
+```bash
+docker push <your-registry-name>.azurecr.io<remote-container-name>:latest
+```
 
 ## Contact
 
