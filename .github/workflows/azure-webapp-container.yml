@@ -57,4 +57,4 @@ jobs:
             --name $CONTAINER_APP_NAME \
             --resource-group $RESOURCE_GROUP \
             --image $REGISTRY/$IMAGE_NAME:${{ github.sha }} \
-            --set-env-vars COSMOS_ENDPOINT=${{ secrets.COSMOS_ENDPOINT }} COSMOS_KEY=${{ secrets.COSMOS_KEY }} COSMOS_DATABASE=${{ secrets.COSMOS_DATABASE }} COSMOS_CONTAINER=${{ secrets.COSMOS_CONTAINER }}
+            --set-env-vars COSMOS_CONNECTION_STRING=${{ secrets.COSMOS_CONNECTION_STRING }} COSMOS_DATABASE=${{ secrets.COSMOS_DATABASE }} COSMOS_CONTAINER=${{ secrets.COSMOS_CONTAINER }}
