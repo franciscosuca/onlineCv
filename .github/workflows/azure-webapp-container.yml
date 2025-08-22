@@ -59,7 +59,7 @@ jobs:
           az container create \
             --name $CONTAINER_APP_NAME \
             --resource-group $RESOURCE_GROUP \
-            --image $REGISTRY/$IMAGE_NAME:latest \
+            --image $IMAGE_NAME:latest \
             --os-type Linux \
             --cpu 1 \
             --memory 1 \
