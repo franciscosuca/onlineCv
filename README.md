@@ -58,7 +58,6 @@ docker run -p 3000:8080
   -e COSMOS_KEY=your_cosmos_key_here 
   -e COSMOS_DATABASE=your_db_here 
   -e COSMOS_CONTAINER=your_container_here 
-  -e NODE_ENV=production 
   onlinecv
 ```
 
