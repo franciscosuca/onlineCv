@@ -54,13 +54,14 @@ jobs:
         run: |
           az container delete --resource-group $RESOURCE_GROUP --name $CONTAINER_APP_NAME --yes || true
       
-      - name: Deploy to Azure Container App
+      - name: Deploy to Azure Container Instance (ACI)
         run: |
           az container create \
             --name $CONTAINER_APP_NAME \
             --resource-group $RESOURCE_GROUP \
             --image $REGISTRY/$IMAGE_NAME:latest \
-            --environment-variables \
+            --os-type Linux \
+            --secure-environment-variables \
             COSMOS_CONNECTION_STRING=${{ secrets.COSMOS_CONNECTION_STRING }} \
             COSMOS_DATABASE=${{ secrets.COSMOS_DATABASE }} \
             COSMOS_CONTAINER=${{ secrets.COSMOS_CONTAINER }} \
