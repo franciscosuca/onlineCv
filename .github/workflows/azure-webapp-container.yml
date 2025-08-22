@@ -11,7 +11,7 @@ permissions:
 
 env:
   REGISTRY: ${{ secrets.DOCKERHUB_REGISTRY }}
-  IMAGE_NAME: online-cv
+  IMAGE_NAME: ${{ secrets.DOCKERHUB_IMAGE }}
   CONTAINER_APP_NAME: ${{ vars.AZURE_CONTAINER_APP_NAME }}
   RESOURCE_GROUP: ${{ secrets.AZURE_RESOURCE_GROUP }}
 
