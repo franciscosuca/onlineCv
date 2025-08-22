@@ -63,7 +63,7 @@ jobs:
             --os-type Linux \
             --cpu 1 \
             --memory 1 \
-            --secure-environment-variables \
+            --environment-variables \
             COSMOS_CONNECTION_STRING=${{ secrets.COSMOS_CONNECTION_STRING }} \
             COSMOS_DATABASE=${{ secrets.COSMOS_DATABASE }} \
             COSMOS_CONTAINER=${{ secrets.COSMOS_CONTAINER }} \
