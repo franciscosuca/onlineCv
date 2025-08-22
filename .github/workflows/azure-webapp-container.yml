@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 env:
-  REGISTRY: ${{ secrets.DOCKERHUB }}
+  REGISTRY: ${{ secrets.DOCKERHUB_REGISTRY }}
   IMAGE_NAME: onlinecv-app
   CONTAINER_APP_NAME: ${{ vars.AZURE_CONTAINER_APP_NAME }}
   RESOURCE_GROUP: ${{ secrets.AZURE_RESOURCE_GROUP }}
@@ -25,7 +25,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ${{ env.REGISTRY }}
-          username: ${{ secrets.DOCKERHUB }}
+          username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Set up Docker Buildx
