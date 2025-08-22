@@ -1,11 +1,9 @@
 # Project Plan Backlog
 
-## v2.0.0
+## v2.0.1
 
-- Create CosmoDB and create connector on the project to fetch data from there
-- Create AZ function that updates/create cosmosDB item(s) once the blob is update
-- Retrieve data from cosmosDB
-- Create pipeline on Github to connect with AZ (Deploy webapp to azure static webapp)
+- Include semantic in the newest pipeline 
+- Add docs for step to use DNS for the containerApp
 
 ## vX.0.0 --> Time to create your own NPM 
 

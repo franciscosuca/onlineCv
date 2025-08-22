@@ -18,13 +18,6 @@ docker buildx create --name multiplatform --use
 docker buildx build --platform linux/amd64,linux/arm64 -t online-cv:latest .
 ```rtfolio that I worked on based on the template from [Vercel](https://portfolio-blog-starter.vercel.app).
 
-## Progress (Temporal)
-
-- 🕐Adapt pipeline
-- 🚧Test container in the cloud
-- ✅Solve issue to fetch experiences from container
-- ✅Solve styles missed when running container
-
 ## Documentation
 
 - [Content Management](./Docs/CONTENT_MANAGEMENT.md)
@@ -65,7 +58,6 @@ docker run -p 3000:8080
   -e COSMOS_KEY=your_cosmos_key_here 
   -e COSMOS_DATABASE=your_db_here 
   -e COSMOS_CONTAINER=your_container_here 
-  -e NODE_ENV=production 
   onlinecv
 ```
 

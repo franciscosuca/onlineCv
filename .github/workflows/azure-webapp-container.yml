@@ -10,8 +10,8 @@ permissions:
   contents: read
 
 env:
-  REGISTRY: ${{ secrets.AZURE_CONTAINER_REGISTRY }}
-  IMAGE_NAME: onlinecv-app
+  REGISTRY: ${{ secrets.DOCKERHUB_REGISTRY }}
+  IMAGE_NAME: ${{ secrets.DOCKERHUB_IMAGE }}
   CONTAINER_APP_NAME: ${{ vars.AZURE_CONTAINER_APP_NAME }}
   RESOURCE_GROUP: ${{ secrets.AZURE_RESOURCE_GROUP }}
 
@@ -21,12 +21,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Log in to Azure Container Registry
-        uses: azure/docker-login@v1
+      - name: Log in to Docker Container Registry
+        uses: docker/login-action@v2
         with:
-          login-server: ${{ env.REGISTRY }}
-          username: ${{ secrets.AZURE_CONTAINER_REGISTRY_USERNAME }}
-          password: ${{ secrets.AZURE_CONTAINER_REGISTRY_PASSWORD }}
+          registry: ${{ env.REGISTRY }}
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -35,7 +35,6 @@ jobs:
         run: |
           docker buildx build \
             --platform linux/amd64,linux/arm64 \
-            --tag $REGISTRY/$IMAGE_NAME:${{ github.sha }} \
             --tag $REGISTRY/$IMAGE_NAME:latest \
             --push \
             .
@@ -51,10 +50,18 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
+      - name: Delete existing ACI (if existing)
+        run: |
+          az container delete --resource-group $RESOURCE_GROUP --name $CONTAINER_APP_NAME --yes || true
+      
       - name: Deploy to Azure Container App
         run: |
-          az containerapp update \
+          az container create \
             --name $CONTAINER_APP_NAME \
             --resource-group $RESOURCE_GROUP \
-            --image $REGISTRY/$IMAGE_NAME:${{ github.sha }} \
-            --set-env-vars COSMOS_CONNECTION_STRING=${{ secrets.COSMOS_CONNECTION_STRING }} COSMOS_DATABASE=${{ secrets.COSMOS_DATABASE }} COSMOS_CONTAINER=${{ secrets.COSMOS_CONTAINER }}
+            --image $REGISTRY/$IMAGE_NAME:latest \
+            --environment-variables \
+            COSMOS_CONNECTION_STRING=${{ secrets.COSMOS_CONNECTION_STRING }} \
+            COSMOS_DATABASE=${{ secrets.COSMOS_DATABASE }} \
+            COSMOS_CONTAINER=${{ secrets.COSMOS_CONTAINER }} \
+            --restart-policy OnFailure
