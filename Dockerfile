@@ -21,7 +21,8 @@ RUN npm run build
 FROM node:20-slim AS runner
 
 # Install ca-certificates for SSL/TLS connections
-RUN apk add --no-cache ca-certificates
+# RUN apk add --no-cache ca-certificates
+RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
