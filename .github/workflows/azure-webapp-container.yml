@@ -61,8 +61,8 @@ jobs:
             --resource-group $RESOURCE_GROUP \
             --image $IMAGE_NAME:latest \
             --os-type Linux \
-            --cpu 1 \
-            --memory 1 \
+            --cpu 2 \
+            --memory 2 \
             --port 80 8080\
             --ip-address Public \
             --environment-variables \

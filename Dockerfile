@@ -18,7 +18,7 @@ COPY . .
 RUN npm run build
 
 # Production image
-FROM node:20-alpine AS runner
+FROM node:20-slim AS runner
 
 # Install ca-certificates for SSL/TLS connections
 RUN apk add --no-cache ca-certificates
