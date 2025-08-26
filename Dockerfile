@@ -1,5 +1,5 @@
 # Use official Node.js LTS image with multi-arch support
-FROM --platform=$BUILDPLATFORM node:20-alpine AS builder
+FROM --platform=$BUILDPLATFORM node:20-slim AS builder
 
 # Build arguments for cross-compilation
 ARG TARGETPLATFORM
