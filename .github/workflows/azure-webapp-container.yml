@@ -65,6 +65,7 @@ jobs:
             --memory 1 \
             --port 80 \
             --ip-address Public \
+            --dns-name-label onlincecv \
             --environment-variables \
             COSMOS_CONNECTION_STRING=${{ secrets.COSMOS_CONNECTION_STRING }} \
             COSMOS_DATABASE=${{ secrets.COSMOS_DATABASE }} \
