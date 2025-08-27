@@ -61,9 +61,9 @@ jobs:
             --resource-group $RESOURCE_GROUP \
             --image $IMAGE_NAME:latest \
             --os-type Linux \
-            --cpu 2 \
-            --memory 2 \
-            --port 80 8080\
+            --cpu 1 \
+            --memory 1 \
+            --port 80 \
             --ip-address Public \
             --environment-variables \
             COSMOS_CONNECTION_STRING=${{ secrets.COSMOS_CONNECTION_STRING }} \
