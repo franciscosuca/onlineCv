@@ -38,6 +38,7 @@ ENV NODE_ENV=production
 
 # Set the port that the app will listen on
 ENV PORT=80
+ENV HOST=0.0.0.0
 
 # Expose port
 EXPOSE 80

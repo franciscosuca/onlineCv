@@ -53,7 +53,7 @@ docker build -t onlinecv .
 ### Run the Docker container
 
 ```bash
-docker run -p 3000:80 
+docker run -p 80:80 
   -e COSMOS_ENDPOINT=https://your-cosmos-account.documents.azure.com:443/ 
   -e COSMOS_KEY=your_cosmos_key_here 
   -e COSMOS_DATABASE=your_db_here 
@@ -84,10 +84,10 @@ NODE_ENV=production
 
 Then run:
 ```bash
-docker run -p 3000:80 --env-file .env onlinecv
+docker run -p 80:80 --env-file .env onlinecv
 ```
 
-The application will be available at `http://localhost:3000`
+The application will be available at `http://localhost:80`
 
 ## Deploy to Azure Container Registry
 
