@@ -71,4 +71,5 @@ jobs:
             COSMOS_DATABASE=${{ secrets.COSMOS_DATABASE }} \
             COSMOS_CONTAINER=${{ secrets.COSMOS_CONTAINER }} \
             HOST=0.0.0.0 \
+            PORT=80 \
             --restart-policy OnFailure

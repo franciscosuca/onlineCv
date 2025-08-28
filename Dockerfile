@@ -36,12 +36,8 @@ COPY --from=builder /app/public ./public
 # Set NODE_ENV to production
 ENV NODE_ENV=production
 
-# Set the port that the app will listen on
-ENV PORT=80
-ENV HOST=0.0.0.0
-
 # Expose port
 EXPOSE 80
 
 # Start the app using the Next.js standalone server
-CMD ["node", "server.js"]
+CMD HOSTNAME=0.0.0.0 PORT=80 node server.js
