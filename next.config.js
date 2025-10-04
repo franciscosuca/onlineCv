@@ -2,7 +2,6 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-  distDir: 'dist',
   output: 'standalone',
   env: {
     COSMOS_CONNECTION_STRING: process.env.COSMOS_CONNECTION_STRING,

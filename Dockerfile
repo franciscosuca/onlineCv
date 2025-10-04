@@ -29,8 +29,8 @@ WORKDIR /app
 # Copy only necessary files from builder
 COPY --from=builder /app/package.json ./
 COPY --from=builder /app/package-lock.json ./
-COPY --from=builder /app/dist/standalone ./
-COPY --from=builder /app/dist/static ./dist/static
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/public ./public
 
 # Set NODE_ENV to production

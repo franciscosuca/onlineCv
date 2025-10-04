@@ -1,8 +1,6 @@
-// import { getSkills } from "../utils/utils";
 import {GraphBarVer, GraphBarHor} from "../components/graphBar";
 
-//TODO-skills: use skills fetched from the experiences on the DB
-// Temporary data for the graph
+//TODO: use skills fetched from the experiences on the DB
 const testProgramingExperience = [
     {
         name: 'C#',
@@ -29,7 +27,6 @@ const testProgramingExperience = [
         }
     },
 ]
-// temporary technology data
 const testTechStackExperience = [
         {
             name: 'AZ/GCP',
