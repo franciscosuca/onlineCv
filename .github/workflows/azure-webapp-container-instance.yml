@@ -1,4 +1,4 @@
-name: Build and Deploy to Azure Container Apps
+name: Build and Deploy to Azure Container App
 
 on:
   push:
@@ -12,7 +12,7 @@ permissions:
 env:
   REGISTRY: ${{ secrets.DOCKERHUB_REGISTRY }}
   IMAGE_NAME: ${{ secrets.DOCKERHUB_IMAGE }}
-  CONTAINER_APP_NAME: ${{ vars.AZURE_CONTAINER_APP_NAME }}
+  CONTAINER_APP_NAME: ${{ vars.AZURE_CONTAINER_INSTANCE_NAME }}
   RESOURCE_GROUP: ${{ secrets.AZURE_RESOURCE_GROUP }}
 
 jobs:
@@ -50,17 +50,24 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      - name: Deploy to Azure Container Apps
+      - name: Delete existing ACI (if existing)
         run: |
-          az containerapp update \
+          az container delete --resource-group $RESOURCE_GROUP --name $CONTAINER_APP_NAME --yes || true
+      
+      - name: Deploy to Azure Container Instance (ACI)
+        run: |
+          az container create \
             --name $CONTAINER_APP_NAME \
             --resource-group $RESOURCE_GROUP \
             --image $REGISTRY/$IMAGE_NAME:latest \
-            --set-env-vars \
-            COSMOS_CONNECTION_STRING="${{ secrets.COSMOS_CONNECTION_STRING }}" \
-            COSMOS_DATABASE="${{ secrets.COSMOS_DATABASE }}" \
-            COSMOS_CONTAINER="${{ secrets.COSMOS_CONTAINER }}" \
-            --cpu 0.25 \
-            --memory 0.5Gi \
-            --min-replicas 0 \
-            --max-replicas 2
+            --os-type Linux \
+            --cpu 0.5 \
+            --memory 0.5 \
+            --port 80 \
+            --ip-address Public \
+            --dns-name-label onlincecv \
+            --environment-variables \
+            COSMOS_CONNECTION_STRING=${{ secrets.COSMOS_CONNECTION_STRING }} \
+            COSMOS_DATABASE=${{ secrets.COSMOS_DATABASE }} \
+            COSMOS_CONTAINER=${{ secrets.COSMOS_CONTAINER }} \
+            --restart-policy OnFailure
