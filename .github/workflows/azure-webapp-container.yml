@@ -56,10 +56,7 @@ jobs:
             --name $CONTAINER_APP_NAME \
             --resource-group $RESOURCE_GROUP \
             --image $REGISTRY/$IMAGE_NAME:latest \
-            --set-env-vars \
-            COSMOS_CONNECTION_STRING="${{ secrets.COSMOS_CONNECTION_STRING }}" \
-            COSMOS_DATABASE="${{ secrets.COSMOS_DATABASE }}" \
-            COSMOS_CONTAINER="${{ secrets.COSMOS_CONTAINER }}" \
+            --set-env-vars COSMOS_CONNECTION_STRING="${{ secrets.COSMOS_CONNECTION_STRING }}",COSMOS_DATABASE="${{ secrets.COSMOS_DATABASE }}",COSMOS_CONTAINER="${{ secrets.COSMOS_CONTAINER }}" \
             --cpu 0.25 \
             --memory 0.5Gi \
             --min-replicas 0 \
