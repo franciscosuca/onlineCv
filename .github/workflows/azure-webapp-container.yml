@@ -80,8 +80,13 @@ jobs:
             --memory 0.5Gi \
             --min-replicas 0 \
             --max-replicas 2
-          
+
+      - name: Update Environment Variables
+        run: |
           az containerapp update \
             --name $CONTAINER_APP_NAME \
             --resource-group $RESOURCE_GROUP \
-            --set-env-vars COSMOS_CONNECTION_STRING="${{ secrets.COSMOS_CONNECTION_STRING }}" COSMOS_DATABASE="${{ secrets.COSMOS_DATABASE }}" COSMOS_CONTAINER="${{ secrets.COSMOS_CONTAINER }}"
+            --set-env-vars \
+            COSMOS_CONNECTION_STRING="${{ secrets.COSMOS_CONNECTION_STRING }}" \
+            COSMOS_DATABASE="${{ secrets.COSMOS_DATABASE }}" \
+            COSMOS_CONTAINER="${{ secrets.COSMOS_CONTAINER }}"
