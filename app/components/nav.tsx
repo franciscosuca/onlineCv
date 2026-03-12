@@ -10,6 +10,7 @@ const navItems = {
   '#work': { name: 'Work' },
   '#projects': { name: 'Projects' },
   '#volunteering': { name: 'Volunteering' },
+  '#contact': { name: 'Contact' },
 }
 
 export function Navbar() {

@@ -1,5 +1,6 @@
 import { Timeline } from "./components/timeline";
 import { PostList } from "./components/postsList";
+import { Contact } from "./components/contact";
 import { Experience } from "./types/Experience";
 
 import workExperienceData from "./data/workExperience.json";
@@ -54,6 +55,9 @@ export default function Page() {
         </h1>
         <PostList posts={volunteering} />
       </section>
+
+      {/* Contact Section */}
+      <Contact />
     </div>
   )
 }
