@@ -1,0 +1,24 @@
+[
+  {
+    "id": "volunteering-0",
+    "type": "volunteering",
+    "sdate": "07.2018",
+    "edate": "07.2018",
+    "company": "Huawei",
+    "location": "Mexico",
+    "title": "Python Trainer",
+    "summary": "Taught Python to 20 of my colleagues from Huawei Latin America with the purpose to develop applications to improve their work efficiency.",
+    "skills": "Various"
+  },
+  {
+    "id": "volunteering-1",
+    "type": "volunteering",
+    "sdate": "10.2017",
+    "edate": "10.2017",
+    "company": "Huawei",
+    "location": "Puerto Rico",
+    "title": "Evaluating Project Loon's Impact on Puerto Rico's Hurricane Recovery",
+    "summary": "Tracked and analyzed signal performance from Project Loon balloons deployed as emergency communication infrastructure following Hurricane Maria in Puerto Rico.",
+    "skills": "Various"
+  }
+]

@@ -1,0 +1,79 @@
+[
+  {
+    "id": "workExperience-0",
+    "type": "workExperience",
+    "sdate": "02.20222",
+    "edate": "Present",
+    "company": "GEA GmhH",
+    "location": "Germany",
+    "title": "Software Engineer",
+    "summary": "Design and develop applications for supporting the comissioning of industrial equipment.",
+    "skills": "Various"
+  },
+  {
+    "id": "workExperience-1",
+    "type": "workExperience",
+    "sdate": "12.2020",
+    "edate": "02.2022",
+    "company": "Livello",
+    "location": "Germany",
+    "title": "IoT / Backend Engineer",
+    "summary": "Developed, maintained, and released IoT and edge applications for an intelligent kiosk, including OS provisioning, secure device connection, and a CI/CD pipeline. Contributed to backend development, implemented testing, and designed an RFID inventory system.",
+    "skills": "Various"
+  },
+  {
+    "id": "workExperience-2",
+    "type": "workExperience",
+    "sdate": "08.2018",
+    "edate": "04.2019",
+    "company": "Huawei",
+    "location": "Dominican Republic",
+    "title": "Wireless Product Manager",
+    "summary": "Interface between the R&D team and the project stakeholders to perform firmware/software test on a variety of CPEs and platforms.",
+    "skills": "Various"
+  },
+  {
+    "id": "workExperience-3",
+    "type": "workExperience",
+    "sdate": "08.2016",
+    "edate": "08.2018",
+    "company": "Huawei",
+    "location": "Dominican Republic",
+    "title": "Radio Frequency Engineer",
+    "summary": "Automate the deployment process, and analytical reports creation to depict critical KPIs about the 2G, 3G & 4G networks.",
+    "skills": "Various"
+  },
+  {
+    "id": "workExperience-4",
+    "type": "workExperience",
+    "sdate": "05.2016",
+    "edate": "08.2014",
+    "company": "WIND-TELECOM",
+    "location": "Dominican Republic",
+    "title": "Optimization Engineer",
+    "summary": "Defined network KPIs, troubleshot system failures, implemented automated testing, developed configuration scripts, and conducted interference analysis to ensure network stability and user experience.",
+    "skills": "Various"
+  },
+  {
+    "id": "workExperience-5",
+    "type": "workExperience",
+    "sdate": "05.2016",
+    "edate": "08.2016",
+    "company": "WIND-TELECOM",
+    "location": "Dominican Republic",
+    "title": "Homologation Engineer",
+    "summary": "Led CPE acquisition through RFP creation, defined and implemented test plans, and managed firmware updates.",
+    "skills": "Various"
+  },
+  {
+    "id": "workExperience-6",
+    "type": "workExperience",
+    "sdate": "09.2013",
+    "edate": "11.2013",
+    "company": "Claro RD",
+    "location": "Dominican Republic",
+    "title": "Internship in IP Convergence Networks",
+    "summary": "Configuration of CISCO routers for Internet and VoIP solutions.",
+    "skills": "Various"
+  }
+]
