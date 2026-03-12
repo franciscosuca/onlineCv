@@ -24,8 +24,8 @@ export function Navbar() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
   return (
-    <aside className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800 transition-all">
-      <div className="max-w-xl mx-auto px-4 py-3 flex items-center justify-between">
+    <aside className="fixed top-0 left-0 right-0 z-50 bg-white/70 dark:bg-black/70 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800 transition-all">
+      <div className="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between">
         <div className='md:hidden'>
           <button
             onClick={toggleMenu}
