@@ -6,11 +6,11 @@ import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi'
 import { useTheme } from 'next-themes'
 
 const navItems = {
-  '/': { name: 'About' },
-  '/workExperience': { name: 'Work Experience' },
-  '/skills': { name: 'Skills' },
-  '/projects': { name: 'Projects' },
-  '/volunteering': { name: 'Volunteering' },
+  '#about': { name: 'About' },
+  '#work': { name: 'Work' },
+  '#skills': { name: 'Skills' },
+  '#projects': { name: 'Projects' },
+  '#volunteering': { name: 'Volunteering' },
 }
 
 export function Navbar() {
@@ -24,8 +24,8 @@ export function Navbar() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
   return (
-    <aside className="-ml-[8px] mb-16 tracking-tight">
-      <div className="lg:sticky lg:top-20 flex items-center justify-between md:block">
+    <aside className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800 transition-all">
+      <div className="max-w-xl mx-auto px-4 py-3 flex items-center justify-between">
         <div className='md:hidden'>
           <button
             onClick={toggleMenu}
