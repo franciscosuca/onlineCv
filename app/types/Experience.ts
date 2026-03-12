@@ -10,4 +10,5 @@ export interface Experience {
     skills: string;
     link?: string;
     resources?: { label: string; url: string }[];
+    stack?: string[];
 }

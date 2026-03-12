@@ -1,6 +1,7 @@
 import React from "react";
 import { Experience } from "../types/Experience";
 import { EmbededLinks } from "./embededLinks";
+import { TechBadge } from "./techBadge";
 
 interface PostsDetailsProps {
   posts: Experience[];
@@ -47,6 +48,14 @@ export function PostList({ posts }: PostsDetailsProps) {
             <article className="prose prose-sm dark:prose-invert max-w-none text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed">
               {item.summary}
             </article>
+
+            {item.stack && item.stack.length > 0 && (
+              <div className="flex flex-wrap gap-2 mb-6">
+                {item.stack.map((tech) => (
+                  <TechBadge key={tech} name={tech} />
+                ))}
+              </div>
+            )}
 
             {/* Resource Hub */}
             {(item.link || (item.resources && item.resources.length > 0)) && (

@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Experience } from '../types/Experience';
+import { TechBadge } from './techBadge';
 
 interface TimelineProps {
   items: Experience[];
@@ -75,6 +76,14 @@ export const Timeline: React.FC<TimelineProps> = ({ items }) => {
                 <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 border-l-2 border-neutral-100 dark:border-neutral-800 pl-4 py-1">
                   {item.summary}
                 </p>
+
+                {item.stack && item.stack.length > 0 && (
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {item.stack.map((tech) => (
+                      <TechBadge key={tech} name={tech} />
+                    ))}
+                  </div>
+                )}
 
                 {/* Cyber Accents */}
                 <div className="absolute bottom-1 right-1 font-mono text-[8px] opacity-20 group-hover:opacity-100 transition-opacity text-cyber-blue">

@@ -8,7 +8,6 @@ import { useTheme } from 'next-themes'
 const navItems = {
   '#about': { name: 'About' },
   '#work': { name: 'Work' },
-  '#skills': { name: 'Skills' },
   '#projects': { name: 'Projects' },
   '#volunteering': { name: 'Volunteering' },
 }

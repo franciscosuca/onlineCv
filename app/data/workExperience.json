@@ -8,7 +8,9 @@
     "location": "Germany",
     "title": "Software Engineer",
     "summary": "Design and develop applications for supporting the comissioning of industrial equipment.",
-    "skills": "Various"
+    "skills": "Various",
+    "stack": ["C#", ".NET", "React", "JavaScript",
+      "TypeScript", "Python", "SQL", "AZ", "DevOps Pipelines"]
   },
   {
     "id": "workExperience-1",
@@ -19,7 +21,8 @@
     "location": "Germany",
     "title": "IoT / Backend Engineer",
     "summary": "Developed, maintained, and released IoT and edge applications for an intelligent kiosk, including OS provisioning, secure device connection, and a CI/CD pipeline. Contributed to backend development, implemented testing, and designed an RFID inventory system.",
-    "skills": "Various"
+    "skills": "Various",
+    "stack": ["Python", "JavaScript", "TypeScript","Docker","GCP", "GitLab Pipelines", "Node.js", "React", "NoSQL", "Ansible", "Kubernetes"]
   },
   {
     "id": "workExperience-2",
@@ -30,7 +33,8 @@
     "location": "Dominican Republic",
     "title": "Wireless Product Manager",
     "summary": "Interface between the R&D team and the project stakeholders to perform firmware/software test on a variety of CPEs and platforms.",
-    "skills": "Various"
+    "skills": "Various",
+    "stack": ["Python", "2G/3G/4G/5G"]
   },
   {
     "id": "workExperience-3",
@@ -41,7 +45,8 @@
     "location": "Dominican Republic",
     "title": "Radio Frequency Engineer",
     "summary": "Automate the deployment process, and analytical reports creation to depict critical KPIs about the 2G, 3G & 4G networks.",
-    "skills": "Various"
+    "skills": "Various",
+    "stack": ["Python", "2G/3G/4G"]
   },
   {
     "id": "workExperience-4",
@@ -52,7 +57,8 @@
     "location": "Dominican Republic",
     "title": "Optimization Engineer",
     "summary": "Defined network KPIs, troubleshot system failures, implemented automated testing, developed configuration scripts, and conducted interference analysis to ensure network stability and user experience.",
-    "skills": "Various"
+    "skills": "Various",
+    "stack": ["Python", "4G-WiMax"]
   },
   {
     "id": "workExperience-5",
@@ -63,7 +69,8 @@
     "location": "Dominican Republic",
     "title": "Homologation Engineer",
     "summary": "Led CPE acquisition through RFP creation, defined and implemented test plans, and managed firmware updates.",
-    "skills": "Various"
+    "skills": "Various",
+    "stack": ["4G-WiMax"]
   },
   {
     "id": "workExperience-6",
@@ -74,6 +81,7 @@
     "location": "Dominican Republic",
     "title": "Internship in IP Convergence Networks",
     "summary": "Configuration of CISCO routers for Internet and VoIP solutions.",
-    "skills": "Various"
+    "skills": "Various",
+    "stack": ["Cisco"]
   }
 ]
