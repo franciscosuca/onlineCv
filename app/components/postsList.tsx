@@ -36,16 +36,16 @@ export function PostList({ posts }: PostsDetailsProps) {
     <div className="space-y-8">
       {orderedPosts.map((item, index) => {
         return (
-          <div key={index} className="group p-6 border border-neutral-200 dark:border-neutral-800 rounded-sm bg-white/50 dark:bg-neutral-900/50 backdrop-blur-sm shadow-[4px_4px_0px_rgba(0,0,0,0.1)] dark:shadow-[4px_4px_0px_var(--color-cyber-blue)] hover:border-cyber-blue transition-all">
+          <div key={index} className="group p-6 border border-neutral-200 dark:border-neutral-800 rounded-sm bg-white dark:bg-hacker-black/80 backdrop-blur-sm transition-all duration-500 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.1)] group-hover:shadow-[0_0_15px_rgba(0,243,255,0.1)] group-hover:border-cyber-blue/50">
             <div className="flex justify-between items-start mb-4">
               <div>
                 <span className="font-mono text-xs text-cyber-blue uppercase tracking-widest">{item.sdate} — {item.edate}</span>
                 <h2 className="text-xl font-mono font-bold mt-1 text-black dark:text-white uppercase tracking-tight">{item.title}</h2>
-                <p className="text-sm font-medium opacity-70 italic">{item.company} · {item.location}</p>
+                <p className="text-sm font-medium text-neutral-700 dark:text-neutral-400 italic">{item.company} · {item.location}</p>
               </div>
             </div>
             
-            <article className="prose prose-sm dark:prose-invert max-w-none text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed">
+            <article className="prose prose-sm dark:prose-invert max-w-none text-neutral-800 dark:text-neutral-400 mb-6 leading-relaxed">
               {item.summary}
             </article>
 
@@ -59,8 +59,8 @@ export function PostList({ posts }: PostsDetailsProps) {
 
             {/* Resource Hub */}
             {(item.link || (item.resources && item.resources.length > 0)) && (
-              <div className="border-t border-neutral-100 dark:border-neutral-800 pt-4 mt-4">
-                <h4 className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400 dark:text-neutral-500 mb-3">Resource Hub</h4>
+              <div className="border-t border-neutral-300 dark:border-neutral-800 pt-4 mt-4">
+                <h4 className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-600 dark:text-neutral-500 mb-3">Resource Hub</h4>
                 <div className="flex flex-wrap gap-4">
                   {item.link && (
                     <a href={item.link} target="_blank" rel="noopener noreferrer" className="flex items-center text-xs font-mono text-cyber-blue hover:underline">

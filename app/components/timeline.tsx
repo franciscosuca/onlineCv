@@ -23,10 +23,10 @@ export const Timeline: React.FC<TimelineProps> = ({ items }) => {
   return (
     <div className="relative py-12 px-4 md:px-0">
       {/* Central Vertical Line (Visible on md+) */}
-      <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-cyber-blue/30 to-transparent -translate-x-1/2 hidden md:block" />
+      <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-cyan-500/50 dark:via-cyber-blue/30 to-transparent -translate-x-1/2 hidden md:block" />
       
       {/* Left-side Vertical Line (Mobile) */}
-      <div className="absolute left-4 top-0 bottom-0 w-[1px] bg-cyber-blue/20 md:hidden" />
+      <div className="absolute left-4 top-0 bottom-0 w-[1px] bg-cyan-500/30 dark:bg-cyber-blue/20 md:hidden" />
 
       <div className="space-y-16">
         {sortedItems.map((item, index) => (
@@ -54,7 +54,7 @@ export const Timeline: React.FC<TimelineProps> = ({ items }) => {
                   <div className="w-2 h-2 rounded-full bg-yellow-400/50" />
                   <div className="w-2 h-2 rounded-full bg-green-400/50" />
                 </div>
-                <span className="font-mono text-[10px] text-neutral-400 uppercase tracking-tighter">
+                <span className="font-mono text-[10px] text-neutral-600 dark:text-neutral-400 uppercase tracking-tighter">
                   {item.company} // v{sortedItems.length - index}.0
                 </span>
               </div>
@@ -68,12 +68,12 @@ export const Timeline: React.FC<TimelineProps> = ({ items }) => {
                   <h3 className="text-xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 uppercase">
                     {item.title}
                   </h3>
-                  <p className="text-xs font-mono text-neutral-500 mt-1 italic">
+                  <p className="text-xs font-mono text-neutral-700 dark:text-neutral-500 mt-1 italic">
                     {item.location}
                   </p>
                 </div>
                 
-                <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 border-l-2 border-neutral-100 dark:border-neutral-800 pl-4 py-1">
+                <p className="text-sm leading-relaxed text-neutral-800 dark:text-neutral-400 border-l-2 border-neutral-300 dark:border-neutral-800 pl-4 py-1">
                   {item.summary}
                 </p>
 

@@ -41,7 +41,7 @@ export const TechBadge: React.FC<TechBadgeProps> = ({ name }) => {
   const Icon = iconMap[name] || null;
 
   return (
-    <div className="flex items-center space-x-1.5 px-2 py-1 rounded-sm border border-cyan-500/30 bg-cyan-500/5 text-cyan-500 dark:text-cyan-400 group/badge hover:border-cyan-500/60 transition-colors duration-300">
+    <div className="flex items-center space-x-1.5 px-2 py-1 rounded-sm border border-cyan-500/30 bg-cyan-500/5 text-cyan-600 dark:text-cyan-400 group/badge hover:border-cyan-500/60 transition-colors duration-300">
       {Icon && <Icon className="text-xs group-hover/badge:scale-110 transition-transform" />}
       <span className="font-mono text-[10px] uppercase tracking-wider font-bold">
         {name}
