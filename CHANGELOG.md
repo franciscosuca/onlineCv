@@ -1,3 +1,13 @@
+## [3.0.0](https://github.com/franciscosuca/onlineCv/compare/v2.1.0...v3.0.0) (2026-03-12)
+
+### ⚠ BREAKING CHANGES
+
+* UI/enhancement and simplify how the information is updated on the project.
+
+### Features
+
+* UI/enhancement and simplify how the information is updated on the project. ([326f14b](https://github.com/franciscosuca/onlineCv/commit/326f14bfdbd3a2c2e6a09d0fa656342ab50ffcb9))
+
 # [2.1.0](https://github.com/franciscosuca/onlineCv/compare/v2.0.0...v2.1.0) (2026-03-12)
 
 
