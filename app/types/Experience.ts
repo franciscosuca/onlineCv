@@ -1,4 +1,3 @@
-
 export interface Experience {
     id: string;
     type: string;
@@ -6,8 +5,10 @@ export interface Experience {
     edate: string;
     company: string;
     location: string;
-    title: string;  // Changed from jobTitle to title to match your data
+    title: string;
     summary: string;
     skills: string;
-    link?: string; // Optional field for external links
-  }
+    link?: string;
+    resources?: { label: string; url: string }[];
+    stack?: string[];
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "projects-0",
+    "type": "projects",
+    "sdate": "05.2021",
+    "edate": "10.2021",
+    "company": "Hochschule RHEIN-WAAL",
+    "location": "Germany",
+    "title": "Master Thesis: IoT service orchestration based on Kubernetes technology for computers with limited resources located in remote areas",
+    "summary": "Research that modernized the IoT architecture that a company owns, by adapting state of the art technology to their solution, such as: a container orchestration technology that runs in devices with limited resources; a monitoring system that allows the visualization of metrics collected from edge devices; and a CICD pipeline that improves the delivery of applications.",
+    "skills": "Various",
+    "stack": ["Kubernetes", "Docker", "Python", "GitLab Pipelines"]
+  },
+  {
+    "id": "projects-1",
+    "type": "projects",
+    "sdate": "10.2019",
+    "edate": "02.2020",
+    "company": "Hochschule RHEIN-WAAL",
+    "location": "Germany",
+    "title": "Bikota: Distributed ledger-based bike renting system",
+    "summary": "This project aims to facilitate the distribution of environmental data collected through a RESTful API and provide anonymous renting service for movable objects by utilizing the IOTA ledger.",
+    "skills": "Various",
+    "stack": ["JavaScript", "Node.js", "SQL/NoSQL", "Docker"]
+  }
+]
