@@ -16,7 +16,7 @@ const navItems = {
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
+  const { theme, setTheme, resolvedTheme } = useTheme()
 
   // Avoid hydration mismatch
   useEffect(() => setMounted(true), [])
@@ -51,11 +51,11 @@ export function Navbar() {
           </nav>
 
           <button
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
             className="p-2 rounded-md hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors text-xl"
             aria-label="Toggle Theme"
           >
-            {mounted && (theme === 'dark' ? <FiSun className="text-cyber-blue" /> : <FiMoon />)}
+            {mounted && (resolvedTheme === 'dark' ? <FiSun className="text-cyber-blue" /> : <FiMoon />)}
           </button>
         </div>
       </div>

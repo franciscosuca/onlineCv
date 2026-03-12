@@ -1,19 +1,18 @@
 export default function Page() {
 
   return (
-    <section>
-      <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        Welcome to Francisco's Online CV 👋🏼
+    <section className="space-y-6">
+      <h1 className="text-3xl font-mono font-bold tracking-tighter border-b border-cyber-blue pb-2 inline-block">
+        ABOUT ME
       </h1>
-      <p className="mb-4">
-        {`With a background in telecommunications and a passion for software development, 
-        I've been able to work on a variety of projects that have helped me grow as a professional
-        in this software development world.`}
-      </p>
-      <p className="mb-4">
-        {`With this website I am trying to put most of my experience as a software engineer together.
-        I am looking forward to add more projects and experiences here, so stay tuned :)`}
-      </p>
+      <div className="prose prose-neutral dark:prose-invert max-w-none font-mono text-sm leading-relaxed tracking-tight">
+        <p>
+          {`Software Engineer with a background in telecommunications. I specialize in building robust digital systems and have a deep passion for solving complex architectural challenges.`}
+        </p>
+        <p>
+          {`This portfolio serves as a central hub for my professional growth, technical experiments, and career journey. Stay tuned as I continue to push the boundaries of my craft.`}
+        </p>
+      </div>
     </section>
   )
 }

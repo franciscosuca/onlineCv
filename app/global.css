@@ -6,6 +6,8 @@
   --color-hacker-black: #0a0a0a;
 }
 
+@variant dark (&:where(.dark, .dark *));
+
 ::selection {
   background-color: var(--color-cyber-blue);
   color: #000;
@@ -23,7 +25,7 @@
   --sh-entity: #e25a1c;
 }
 
-[data-theme='dark'] {
+.dark {
   --sh-class: #4c97f8;
   --sh-identifier: white;
   --sh-keyword: #f47067;
@@ -38,11 +40,13 @@ html {
 body {
   background-image: radial-gradient(circle at 2px 2px, rgba(0,0,0,0.05) 1px, transparent 0);
   background-size: 24px 24px;
+  color: black;
 }
 
-[data-theme='dark'] body {
+.dark body {
   background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
   background-color: var(--color-hacker-black);
+  color: white;
 }
 
 /* Custom Scrollbar */
@@ -82,7 +86,7 @@ body {
   box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
 }
 
-[data-theme='dark'] .prose pre {
+.dark .prose pre {
   box-shadow: 2px 2px 0px var(--color-cyber-blue);
 }
 
