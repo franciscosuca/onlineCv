@@ -38,6 +38,7 @@
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "cheerio": "^1.2.0",
+    "conventional-changelog-conventionalcommits": "^9.3.0",
     "ts-node": "^10.9.2"
   }
 }
